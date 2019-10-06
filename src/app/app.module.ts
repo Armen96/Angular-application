@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import {HttpClient, HttpClientModule} from '@angular/common/http';
 import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
@@ -18,6 +18,12 @@ import { RecordsComponent } from './components/records/records.component';
 import { RecordComponent } from './components/records/record/record.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MaterialModule} from './modules/material.module';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
+}
 
 @NgModule({
   declarations: [
@@ -36,7 +42,14 @@ import {MaterialModule} from './modules/material.module';
     StoreModule.forRoot(reducers,{}),
     RouterModule,
     AppRoutingModule,
-    MaterialModule
+    MaterialModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: createTranslateLoader, // exported factory function needed for AoT compilation
+        deps: [HttpClient]
+      }
+    })
   ],
   providers: [RecordsService,AuthGuard],
   bootstrap: [AppComponent]

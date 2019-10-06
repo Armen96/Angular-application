@@ -1,9 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-
-import { Observable, of, throwError } from 'rxjs';
-
-import {catchError, map} from 'rxjs/operators';
+import {TranslateService} from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -12,10 +9,14 @@ import {catchError, map} from 'rxjs/operators';
 })
 
 export class AppComponent implements OnInit{
-  title = 'angular-app';
 
-  constructor(private http: HttpClient) {
-
+  constructor(
+    private http: HttpClient,
+    public translate: TranslateService
+  ) {
+    translate.addLangs(['en', 'klingon'])
+    translate.setDefaultLang('en');
+    translate.use('en');
   }
 
   ngOnInit() {

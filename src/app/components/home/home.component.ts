@@ -1,23 +1,28 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import {MatDialog} from '@angular/material';
+import {DialogOverviewExampleComponent} from '../../shared/dialog-overview-example/dialog-overview-example.component';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent {
+  animal: string;
+  name: string;
 
-  title: string = "Hello World!";
-  currencyFormat: string = 'EUR';
-  name = 'Armen';
+  constructor(public dialog: MatDialog) { }
 
-  constructor() { }
+  openDialog(): void {
+    const dialogRef = this.dialog.open(DialogOverviewExampleComponent, {
+      width: '250px',
+      data: {name: this.name, animal: this.animal}
+    });
 
-  ngOnInit() {
-  }
-
-  changeCurrency() {
-    this.currencyFormat = "INR"
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.animal = result;
+    });
   }
 
 }

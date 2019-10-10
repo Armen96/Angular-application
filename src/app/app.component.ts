@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, isDevMode } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {TranslateService} from '@ngx-translate/core';
 
@@ -20,6 +20,13 @@ export class AppComponent implements OnInit{
   }
 
   ngOnInit() {
+
+    if ( isDevMode() ) {
+      console.log('dev')
+    } else {
+       console.log('prod');
+    }
+
 
     // this.http.get<any[]>('https://jsonplaceholder.typicode.com/posts')
     //   .pipe(

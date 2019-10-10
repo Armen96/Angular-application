@@ -21,6 +21,9 @@ import {MaterialModule} from './modules/material.module';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {MyInterceptor} from './interceptors/my.interceptor';
+import { DialogOverviewExampleComponent } from './shared/dialog-overview-example/dialog-overview-example.component';
+import {MatButtonModule, MatDialogModule, MatFormFieldModule, MatInputModule, MatRippleModule} from '@angular/material';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -33,7 +36,8 @@ export function createTranslateLoader(http: HttpClient) {
     LoginComponent,
     HeaderComponent,
     RecordsComponent,
-    RecordComponent
+    RecordComponent,
+    DialogOverviewExampleComponent
   ],
   imports: [
     BrowserModule,
@@ -50,12 +54,19 @@ export function createTranslateLoader(http: HttpClient) {
         useFactory: createTranslateLoader, // exported factory function needed for AoT compilation
         deps: [HttpClient]
       }
-    })
+    }),
+    MatButtonModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatRippleModule,
+    MatDialogModule,
+    BrowserAnimationsModule
   ],
   providers: [
     RecordsService,AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true }
   ],
+  entryComponents: [DialogOverviewExampleComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

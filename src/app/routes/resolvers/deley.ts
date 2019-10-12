@@ -12,7 +12,7 @@ export class DelayResolver implements Resolve<Observable<string>> {
 
   resolve() {
     return of('Hello Alligator!').pipe(
-      delay(500)
+      delay(100)
     );
   }
 }

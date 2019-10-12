@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit, OnChanges, SimpleChanges} from '@angular/core';
 import {MatDialog} from '@angular/material';
 import {DialogOverviewExampleComponent} from '../../shared/dialog-overview-example/dialog-overview-example.component';
 
@@ -7,7 +7,7 @@ import {DialogOverviewExampleComponent} from '../../shared/dialog-overview-examp
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent {
+export class HomeComponent implements OnChanges, OnInit{
   animal: string;
   name: string;
 
@@ -23,6 +23,14 @@ export class HomeComponent {
       console.log('The dialog was closed');
       this.animal = result;
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log("change", changes);
+  }
+
+  ngOnInit(): void {
+    console.log('ngOnInit');
   }
 
 }

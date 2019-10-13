@@ -21,7 +21,8 @@ import {MaterialModule} from './modules/material.module';
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {MyInterceptor} from './interceptors/my.interceptor';
-import { DialogOverviewExampleComponent } from './shared/dialog-overview-example/dialog-overview-example.component';
+import { DialogOverviewExampleComponent } from './shared/components/dialog-overview-example/dialog-overview-example.component';
+import { AlertComponent } from './shared/components/alert/alert.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -35,7 +36,8 @@ export function createTranslateLoader(http: HttpClient) {
     HeaderComponent,
     RecordsComponent,
     RecordComponent,
-    DialogOverviewExampleComponent
+    DialogOverviewExampleComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,

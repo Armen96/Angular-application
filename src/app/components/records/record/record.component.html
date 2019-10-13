@@ -1,3 +1,18 @@
 <ng-content></ng-content>
 
 <p>{{ message }}</p>
+<p>{{ counter }}</p>
+
+<div>
+  <div #AlertComponent *ngIf="showAlert"></div>
+
+  <button [ngClass]="'btn btn-warning'" (click)="toggleAlert()">Toggle Alert</button>
+</div>
+
+<div>
+  <ul>
+    <li *ngFor="let value of values">
+      {{ value }}
+    </li>
+  </ul>
+</div>

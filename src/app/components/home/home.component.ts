@@ -1,6 +1,6 @@
 import {Component, OnInit, OnChanges, SimpleChanges} from '@angular/core';
 import {MatDialog} from '@angular/material';
-import {DialogOverviewExampleComponent} from '../../shared/dialog-overview-example/dialog-overview-example.component';
+import {DialogOverviewExampleComponent} from '../../shared/components/dialog-overview-example/dialog-overview-example.component';
 
 @Component({
   selector: 'app-home',

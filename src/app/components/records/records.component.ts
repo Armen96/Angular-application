@@ -1,6 +1,7 @@
-import {Component, OnInit, OnChanges, SimpleChanges, DoCheck, OnDestroy, Input} from '@angular/core';
+import {Component, OnInit, OnChanges, SimpleChanges, DoCheck, OnDestroy, Input, ViewChild} from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {RecordsService} from '../../services/records.service';
+import {RecordComponent} from './record/record.component';
 
 @Component({
   selector: 'app-records',
@@ -10,6 +11,9 @@ import {RecordsService} from '../../services/records.service';
 export class RecordsComponent implements OnInit, OnChanges, DoCheck, OnDestroy {
   @Input() recordName: string = "";
   message: string | number = "Hello Message";
+
+  @ViewChild(RecordComponent, {static: false})
+  private counterComponent: RecordComponent;
 
   constructor(private activeRoute: ActivatedRoute, private recordService: RecordsService) { }
 
@@ -26,7 +30,7 @@ export class RecordsComponent implements OnInit, OnChanges, DoCheck, OnDestroy {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('CHANGE DETECTED ');
+   // console.log('CHANGE DETECTED ');
   }
 
   ngDoCheck(): void {
@@ -34,7 +38,15 @@ export class RecordsComponent implements OnInit, OnChanges, DoCheck, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    console.log('Component Destroyed');
+   // console.log('Component Destroyed');
+  }
+
+  increment() {
+    this.counterComponent.increment();
+  }
+
+  decrement(){
+    this.counterComponent.decrement();
   }
 
 }

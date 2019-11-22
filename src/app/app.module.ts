@@ -9,8 +9,6 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import {AuthGuard} from './guards/auth.guard';
 
-
-import { reducers } from './store/reducers';
 import { HeaderComponent } from './components/header/header.component';
 import { AppRoutingModule } from './routes/app-routing.module'
 import {RouterModule} from '@angular/router';
@@ -23,6 +21,8 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {MyInterceptor} from './interceptors/my.interceptor';
 import { DialogOverviewExampleComponent } from './shared/components/dialog-overview-example/dialog-overview-example.component';
 import { AlertComponent } from './shared/components/alert/alert.component';
+import { reducers } from './reducers';
+import { TestingComponent } from './components/testing/testing.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -37,14 +37,14 @@ export function createTranslateLoader(http: HttpClient) {
     RecordsComponent,
     RecordComponent,
     DialogOverviewExampleComponent,
-    AlertComponent
+    AlertComponent,
+    TestingComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    StoreModule.forRoot(reducers,{}),
     RouterModule,
     AppRoutingModule,
     MaterialModule,
@@ -54,7 +54,7 @@ export function createTranslateLoader(http: HttpClient) {
         useFactory: createTranslateLoader, // exported factory function needed for AoT compilation
         deps: [HttpClient]
       }
-    })
+    }),
   ],
   providers: [
     RecordsService,AuthGuard,

@@ -57,6 +57,7 @@
       false,
       "ignore-params"
     ],
+    "no-empty-interface": false,
     "no-non-null-assertion": true,
     "no-redundant-jsdoc": true,
     "no-switch-case-fall-through": true,

@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { StoreModule } from '@ngrx/store';
 
 import { AppComponent } from './app.component';
 import {RecordsService} from './services/records.service';
@@ -21,7 +20,6 @@ import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {MyInterceptor} from './interceptors/my.interceptor';
 import { DialogOverviewExampleComponent } from './shared/components/dialog-overview-example/dialog-overview-example.component';
 import { AlertComponent } from './shared/components/alert/alert.component';
-import { reducers } from './reducers';
 import { TestingComponent } from './components/testing/testing.component';
 
 export function createTranslateLoader(http: HttpClient) {

@@ -1,0 +1,11 @@
+<div>
+  <p>Records page!</p>
+
+  <div *ngIf="records$ | async as records">
+    <ul>
+      <li *ngFor="let record of records">
+        {{ record.title }}
+      </li>
+    </ul>
+  </div>
+</div>

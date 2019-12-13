@@ -1,23 +1,23 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import {RecordsService} from './components/records/services/records.service';
 import { HomeComponent } from './components/home/home.component';
-import { LoginComponent } from './components/login/login.component';
-import {AuthGuard} from './shared/guards/auth.guard';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 import { AppRoutingModule } from './app-routing.module';
-import {RouterModule} from '@angular/router';
-import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {MyInterceptor} from './shared/interceptors/my.interceptor';
-import {StoreModule} from '@ngrx/store';
-import {EffectsModule} from '@ngrx/effects';
-import {recordsEffects, recordsReducers} from './components/records/store';
-import {SharedModule} from './shared/shared.module';
+import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { MyInterceptor } from './shared/interceptors/my.interceptor';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { recordReducer, featureEffects } from './store';
+import { SharedModule } from './shared/shared.module';
+import { appServices } from './services';
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -26,8 +26,7 @@ export function createTranslateLoader(http: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
@@ -37,23 +36,26 @@ export function createTranslateLoader(http: HttpClient) {
     RouterModule,
     SharedModule,
     AppRoutingModule,
-    StoreModule.forRoot({}),
-    StoreModule.forFeature('records', recordsReducers),
-    EffectsModule.forRoot([]),
-    EffectsModule.forFeature(recordsEffects),
+    StoreModule.forRoot({
+      records: recordReducer,
+    }),
+    EffectsModule.forRoot([...featureEffects]),
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: createTranslateLoader, // exported factory function needed for AoT compilation
+        useFactory: createTranslateLoader,
         deps: [HttpClient]
       }
     }),
+    BrowserAnimationsModule
   ],
   providers: [
-    RecordsService, AuthGuard,
+    ...appServices,
+    AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: MyInterceptor, multi: true }
   ],
   entryComponents: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

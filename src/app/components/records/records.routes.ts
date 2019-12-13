@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import {RecordsComponent} from './components/records.component';
-import {RecordComponent} from './components/record/record.component';
+import {RecordAddComponent} from './components/record-add/record-add.component';
+import {RecordViewComponent} from './components/record-view/record-view.component';
 
 const routes: Routes = [
   {
@@ -9,8 +10,12 @@ const routes: Routes = [
     component: RecordsComponent
   },
   {
+    path: 'add',
+    component: RecordAddComponent
+  },
+  {
     path: ':id',
-    component: RecordComponent
+    component: RecordViewComponent
   }
 ];
 

@@ -1,5 +1,5 @@
 export interface RecordsInterface {
-  id: number;
+  id?: number;
   body: string;
   title: string;
   userId: number;

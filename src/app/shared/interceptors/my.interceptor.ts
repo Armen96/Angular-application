@@ -13,6 +13,5 @@ export class MyInterceptor implements HttpInterceptor {
     const duplicate = req.clone({ params: req.params.set('filter', 'completed') });
 
     return next.handle(duplicate);
-
   }
 }

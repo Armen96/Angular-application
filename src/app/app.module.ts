@@ -18,6 +18,7 @@ import { recordReducer, featureEffects } from './store';
 import { SharedModule } from './shared/shared.module';
 import { appServices } from './services';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import {IgxListModule} from 'igniteui-angular';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -47,7 +48,8 @@ export function createTranslateLoader(http: HttpClient) {
         deps: [HttpClient]
       }
     }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    IgxListModule
   ],
   providers: [
     ...appServices,

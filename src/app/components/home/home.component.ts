@@ -14,7 +14,6 @@ export class HomeComponent implements OnChanges, OnInit {
   }
 
   ngOnInit(): void {
-    console.log('ngOnInit');
   }
 
 }

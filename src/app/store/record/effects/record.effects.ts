@@ -31,7 +31,6 @@ export class RecordEffects {
     switchMap((record) => {
       return this.recordsService.createRecord(record).pipe(
         map(response => {
-          console.log('effect', response);
           return new fromAction.CreateRecordSuccess(response);
         }),
         catchError(error => of(new fromAction.CreateRecordFail(error)))

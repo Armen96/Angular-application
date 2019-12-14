@@ -37,7 +37,6 @@ export class RecordsComponent {
   }
 
   onDialogOKSelected(event) {
-    console.log(this.record);
     this.store.dispatch(new fromStore.DeleteRecord(this.record.id));
   }
 }

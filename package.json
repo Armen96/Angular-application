@@ -8,7 +8,8 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "build-aot": "node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng build --aot"
+    "build-aot": "node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng build --aot",
+    "deploy-github": "ng build --prod --base-href 'https://armen96.github.io/'"
   },
   "private": true,
   "dependencies": {

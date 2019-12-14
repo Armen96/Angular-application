@@ -29,7 +29,6 @@ export class RecordViewComponent extends UnsubscriptionHandler {
     this.initForm();
 
     this.route.paramMap.pipe(takeUntil(this.unsubscribe$)).subscribe(params => {
-      console.log(+params.get('id'));
       this.store.dispatch(new fromStore.LoadRecordById(+params.get('id')));
     });
     this.store.dispatch(new fromStore.LoadRecordByIdSuccess(null));

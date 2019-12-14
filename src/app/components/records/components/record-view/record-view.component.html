@@ -6,7 +6,7 @@
 </div>
 <div class="flex flex-start w-100 margin-bottom-20">
   <h3 class="igx-typography__h5 flex-grow-1 margin-top-0">
-    Record View
+    Edit Record
   </h3>
 </div>
 <igx-divider></igx-divider>
@@ -28,11 +28,13 @@
     <section class="row">
       <div class="col-xs-12">
         <button type="button" class="btn btn-primary"
-                [disabled]="(isLoading$ | async) || recordForm.invalid" (click)="doSave()">
+                [disabled]="(isLoading$ | async) || recordForm.invalid" (click)="doSave()"
+                igxButton="raised" igxButtonColor="white" igxButtonBackground="#000" igxRipple="yellow"
+        >
           Save
         </button>
         <button type="button" class="btn btn-primary margin-left-10" [disabled]="isLoading$ | async"
-                (click)="doCancel()">
+                (click)="doCancel()" igxButton="raised" igxButtonColor="white" igxButtonBackground="#000" igxRipple="yellow">
           Cancel
         </button>
       </div>

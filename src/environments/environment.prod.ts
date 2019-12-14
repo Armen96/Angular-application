@@ -8,5 +8,9 @@ export const environment = {
     storageBucket: "",
     messagingSenderId: "410269889902",
     appId: "1:410269889902:web:ed3987a0d346b170c83d7f"
+  },
+  REST_URL: 'https://jsonplaceholder.typicode.com',
+  RECORDS: {
+    SERVICE_PATH: '/posts'
   }
 };

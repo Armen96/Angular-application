@@ -9,8 +9,17 @@ export const environment = {
     messagingSenderId: "410269889902",
     appId: "1:410269889902:web:ed3987a0d346b170c83d7f"
   },
+  AUTH: {
+    TOKEN_HEADER_NAME: 'app-token',
+    USER: 'app-user',
+  },
   REST_URL: 'https://jsonplaceholder.typicode.com',
+  LOCAL_REST_URL: 'https://finance-manager-nodejs.herokuapp.com/api',
   RECORDS: {
-    SERVICE_PATH: '/posts'
+    SERVICE_PATH: '/records'
+  },
+  USERS: {
+    LOGIN: '/users/login',
+    REGISTER: '/users/register'
   }
 };

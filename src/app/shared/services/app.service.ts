@@ -14,7 +14,7 @@ export abstract  class AppService {
   }
 
   protected getUrl(servicePath: string = this.defaultServicePath, subPath: string, id: number | string = 0): string {
-    return environment.REST_URL + servicePath + subPath + (id ? '/' + id : '');
+    return environment.LOCAL_REST_URL + servicePath + subPath + (id ? '/' + id : '');
   }
 
   protected getUrlNoServicePath(subPath: string, id: number | string = 0): string {

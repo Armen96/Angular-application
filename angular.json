@@ -26,7 +26,13 @@
             "styles": [
               "node_modules/minireset.css/minireset.css",
               "src/styles.css",
-              "node_modules/igniteui-angular/styles/igniteui-angular.css"
+              "node_modules/igniteui-angular/styles/igniteui-angular.css",
+              "src/assets/css/lockscreen.css",
+              "src/assets/css/font-awesome.css",
+              "src/assets/css/smartadmin-production.css",
+              "src/assets/css/smartadmin-production-plugins.css",
+              "src/assets/css/smartadmin-skins.css",
+              "src/assets/css/smartadmin-rtl.css"
             ],
             "scripts": []
           },
@@ -92,7 +98,13 @@
             ],
             "styles": [
               "src/styles.css",
-              "node_modules/igniteui-angular/styles/igniteui-angular.css"
+              "node_modules/igniteui-angular/styles/igniteui-angular.css",
+              "src/assets/css/lockscreen.css",
+              "src/assets/css/font-awesome.css",
+              "src/assets/css/smartadmin-production.css",
+              "src/assets/css/smartadmin-production-plugins.css",
+              "src/assets/css/smartadmin-skins.css",
+              "src/assets/css/smartadmin-rtl.css"
             ],
             "scripts": []
           }

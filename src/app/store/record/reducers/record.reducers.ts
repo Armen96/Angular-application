@@ -59,7 +59,7 @@ export function recordReducer(state = initialState, action: fromActions.RecordAc
       const recordId = action.payload;
       const records = state.records;
       const result = records.filter((item) => {
-        return item.id !== recordId;
+        return item['_id'] !== recordId;
       });
 
       return {
@@ -74,10 +74,10 @@ export function recordReducer(state = initialState, action: fromActions.RecordAc
       const record = action.payload;
       const records = state.records;
       records.filter((item) => {
-        if (item.id === record.id) {
-          item.body = record.body;
-          item.title = record.title;
-        }
+        // if (item.id === record.id) {
+        //   item.body = record.body;
+        //   item.title = record.title;
+        // }
       });
 
       return {

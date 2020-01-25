@@ -16,7 +16,7 @@ export class RecordsService extends AppService {
   }
 
   getRecords(): Observable<RecordsInterface[]> {
-    const url = this.getUrl(environment.RECORDS.SERVICE_PATH, '?_start=0&_limit=5');
+    const url = this.getUrl(environment.RECORDS.SERVICE_PATH, '');
     return this.http.get<RecordsInterface[]>(url);
   }
 

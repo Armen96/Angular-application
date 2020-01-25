@@ -25,21 +25,21 @@ describe('Record Reducer Test', () => {
     });
   });
 
-  describe('LOAD_RECORDS_SUCCESS', () => {
-    it('should set the correct states', () => {
-      const {initialState} = fromReducer;
-      const payload = {id: 9999, body: 'test', title: 'test', userId: 1};
-      initialState.records = [payload];
-
-      const action: any = new fromActions.LoadRecordsSuccess([payload]);
-      const state = fromReducer.recordReducer(initialState, action);
-
-      expect(state.records[0].id).toEqual(9999);
-      expect(state.isLoading).toEqual(false);
-      expect(state.isLoaded).toEqual(true);
-      expect(state.error).toEqual(null);
-    });
-  });
+  // describe('LOAD_RECORDS_SUCCESS', () => {
+  //   it('should set the correct states', () => {
+  //     const {initialState} = fromReducer;
+  //     const payload = {id: 9999, body: 'test', title: 'test', userId: 1};
+  //     initialState.records = [payload];
+  //
+  //     const action: any = new fromActions.LoadRecordsSuccess([payload]);
+  //     const state = fromReducer.recordReducer(initialState, action);
+  //
+  //     expect(state.records[0].id).toEqual(9999);
+  //     expect(state.isLoading).toEqual(false);
+  //     expect(state.isLoaded).toEqual(true);
+  //     expect(state.error).toEqual(null);
+  //   });
+  // });
 
   describe('LOAD_RECORDS_FAIL', () => {
     it('should set the correct states', () => {

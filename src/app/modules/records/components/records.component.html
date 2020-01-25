@@ -1,0 +1,64 @@
+<div class="height-95 margin-bottom-20" *ngIf="records$ | async">
+  <div class="flex flex-start w-100 margin-bottom-20">
+    <h5 class="flex-grow-1 margin-top-0">{{ 'HEADERS.RECORDS' | translate }}</h5>
+
+    <button
+      class="btn btn-primary" [routerLink]="['/records/add']"
+      igxButton="raised" igxButtonColor="white" igxButtonBackground="#000" igxRipple="yellow"
+    >
+      {{ 'LABELS.ADD_RECORD' | translate }}
+    </button>
+  </div>
+
+  <div class="height-100 grid-wrapper titan-custom-igx-grid margin-top-20">
+    <igx-grid #recordsListGrid [data]="records$ | async" [primaryKey]="'_id'" width="100%" style="min-height: 700px"
+              [autoGenerate]="false" [showToolbar]="true" [columnHiding]="true"
+              [columnPinning]="true" [hideRowSelectors]="true" [clipboardOptions]="clipboardOptions" [allowFiltering]="true"
+              [rowSelection]="'single'" (onRowSelectionChange)="handleRowSelection($event)">
+
+      <igx-column field="week" [header]="'Week'" [dataType]="'number'" [resizable]="true"
+                  [hasSummary]="false" [sortable]="true" [movable]="true">
+      </igx-column>
+      <igx-column field="start_date" [header]="'Start Date'" [dataType]="'string'" [resizable]="true"
+                  [hasSummary]="false" [sortable]="true" [movable]="true">
+      </igx-column>
+      <igx-column field="end_date" [header]="'End Date'" [dataType]="'string'" [resizable]="true"
+                  [hasSummary]="false" [sortable]="true" [movable]="true">
+      </igx-column>
+      <igx-column field="income" [header]="'Income'" [dataType]="'number'"
+                  [resizable]="true" [movable]="true" [sortable]="true">
+      </igx-column>
+      <igx-column field="outcome" [header]="'Outcome'" [dataType]="'number'"
+                  [resizable]="true" [movable]="true" [sortable]="true">
+      </igx-column>
+      <igx-column field="description" [header]="'Description'" [dataType]="'string'"
+                  [resizable]="true" [hasSummary]="true" [movable]="true" [sortable]="true">
+      </igx-column>
+      <igx-column field="id" [header]="'Actions'" [dataType]="'string'" width="130px"
+                  [resizable]="false" [filterable]="false" [headerClasses]="'text-center'">
+        <ng-template igxCell let-value>
+          <div class="w-100 text-center action-show-when-hover">
+            <button igxButton="icon" igxRipple="white" igxButtonColor="darkred" igxButtonBackground="transparent"
+                    igxRippleCentered="true" (click)="dialog.open()">
+              <igx-icon fontSet="material">delete</igx-icon>
+            </button>
+          </div>
+        </ng-template>
+      </igx-column>
+    </igx-grid>
+
+    <igx-hint>
+      <span class="grid-footer-hint-message">
+        We are using <b>jsonplaceholder.typicode</b> api and it does not allow to manipulate with all data!!!
+      </span>
+    </igx-hint>
+  </div>
+</div>
+
+<igx-dialog #dialog title="Confirmation"
+            leftButtonLabel="Cancel"
+            (onLeftButtonSelect)="dialog.close()"
+            rightButtonLabel="OK"
+            (onRightButtonSelect)="onDialogOKSelected($event); dialog.close()"
+            message="Are you sure you want to delete this item?">
+</igx-dialog>

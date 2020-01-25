@@ -5,7 +5,17 @@
     </div>
     <ul class="nav navbar-nav">
       <li><a [routerLink]="'/'">Home</a></li>
-      <li><a [routerLink]="'/records'">Records</a></li>
+      <li *ngIf="isLogged"><a [routerLink]="'/records'">Records</a></li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right" *ngIf="!isLogged">
+      <li><a [routerLink]="'/register'"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a [routerLink]="'/login'"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right" *ngIf="isLogged">
+      <li><a [routerLink]="'/profile'"><span class="glyphicon glyphicon-user"></span> {{ user?.name }}</a></li>
+      <li><a (click)="logout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
     </ul>
   </div>
 </nav>

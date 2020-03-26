@@ -46,6 +46,10 @@ body {
   z-index: 9999;
 }
 
+.default-text-color {
+  color: #880416;
+}
+
 .ais-title {
   color: white;
   font-size: 18px;

@@ -1,0 +1,42 @@
+.top-logo-size {
+  width: 200px;
+}
+
+header.main-header {
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  padding: 10px 20px;
+  background-color: white;
+  background-repeat: repeat-x;
+  position: relative;
+  z-index: 9;
+}
+
+.settings-menu {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.profile-settings-buttons a{
+  color: #880416;
+}
+
+.profile-settings-buttons a:hover {
+  background-color: #fff;
+}
+
+.profile-settings-buttons a:active {
+  background-color: #fff;
+}
+
+.profile-settings-buttons a:visited {
+  background-color: #fff;
+}
+
+.profile-settings-buttons a:link {
+  background-color: #fff;
+}

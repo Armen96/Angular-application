@@ -1,21 +1,49 @@
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand">Infragistics</a>
+<!--<nav class="navbar navbar-inverse">-->
+<!--  <div class="container-fluid">-->
+<!--    <div class="navbar-header">-->
+<!--      <a class="navbar-brand">Infragistics</a>-->
+<!--    </div>-->
+<!--    <ul class="nav navbar-nav">-->
+<!--      <li><a [routerLink]="'/'">Home</a></li>-->
+<!--      <li *ngIf="isLogged"><a [routerLink]="'/records'">Records</a></li>-->
+<!--    </ul>-->
+
+<!--    <ul class="nav navbar-nav navbar-right" *ngIf="!isLogged">-->
+<!--      <li><a [routerLink]="'/register'"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>-->
+<!--      <li><a [routerLink]="'/login'"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>-->
+<!--    </ul>-->
+
+<!--    <ul class="nav navbar-nav navbar-right" *ngIf="isLogged">-->
+<!--      <li><a [routerLink]="'/profile'"><span class="glyphicon glyphicon-user"></span> {{ user?.name }}</a></li>-->
+<!--      <li><a (click)="logout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--</nav>-->
+
+
+<header class="main-header">
+  <a routerLink="/">
+    <img src="assets/img/alo.png" class="top-logo-size" alt="Titan Platform">
+  </a>
+
+  <div class="settings-menu" *ngIf="isLogged">
+    <span class="margin-left-15 margin-right-15 default-text-color">
+      {{ user?.name }}
+    </span>
+    |
+    <div id="logout" class="transparent margin-left-15 clickable">
+      <span>
+        <a class="margin-top-0 no-decoration font-size-17 dark-hover color-black" (click)="logout()" title="Sign Out">
+          <i class="fa fa-sign-out"></i>
+        </a>
+      </span>
     </div>
-    <ul class="nav navbar-nav">
-      <li><a [routerLink]="'/'">Home</a></li>
-      <li *ngIf="isLogged"><a [routerLink]="'/records'">Records</a></li>
-    </ul>
+  </div>
 
-    <ul class="nav navbar-nav navbar-right" *ngIf="!isLogged">
-      <li><a [routerLink]="'/register'"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a [routerLink]="'/login'"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    </ul>
-
-    <ul class="nav navbar-nav navbar-right" *ngIf="isLogged">
-      <li><a [routerLink]="'/profile'"><span class="glyphicon glyphicon-user"></span> {{ user?.name }}</a></li>
-      <li><a (click)="logout()"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+  <div class="settings-menu" *ngIf="!isLogged">
+    <ul class="nav navbar-nav navbar-right">
+      <li class="profile-settings-buttons"><a [routerLink]="'/register'"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li class="profile-settings-buttons"><a [routerLink]="'/login'"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
-</nav>
+</header>

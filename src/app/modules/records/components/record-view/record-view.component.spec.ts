@@ -3,11 +3,9 @@ import { Component, NO_ERRORS_SCHEMA } from '@angular/core';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import {ReactiveFormsModule} from '@angular/forms';
 import { RouterTestingModule } from '@angular/router/testing';
-import { combineReducers, select, Store, StoreModule } from '@ngrx/store';
+import { combineReducers, Store, StoreModule } from '@ngrx/store';
 import { TranslateService } from '@ngx-translate/core';
 import { configureTestSuite } from 'ng-bullet';
-import { skip, take } from 'rxjs/operators';
-
 import { RecordViewComponent } from './record-view.component';
 import {FakeTranslateModule} from '../../../../../test-utils/test-utils';
 import {AppState} from '../../../../shared/ngrx/appState';

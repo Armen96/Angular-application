@@ -1,13 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable, of} from 'rxjs';
-import {UsersInterface} from '../../interfaces/auth/users.interface';
 import {AppService} from '../../shared/services/app.service';
 import {environment} from '../../../environments/environment';
+import {SearchPersonInterface} from '../../interfaces/auth/search.person.interface';
 
 @Injectable()
 export class AuthService extends AppService {
-  private user: UsersInterface;
 
   constructor(protected http: HttpClient) {
     super(http);
@@ -26,7 +25,6 @@ export class AuthService extends AppService {
   logout() {
     localStorage.removeItem(environment.AUTH.TOKEN_HEADER_NAME);
     localStorage.removeItem(environment.AUTH.USER);
-    this.user = null;
     return of(true);
   }
 
@@ -45,5 +43,10 @@ export class AuthService extends AppService {
     }
 
     return user;
+  }
+
+  searchPerson(person: SearchPersonInterface): Observable<any> {
+    const url = this.getUrl(environment.USERS.SEARCH, '');
+    return this.http.post(url, person);
   }
 }

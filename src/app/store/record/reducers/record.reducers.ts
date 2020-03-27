@@ -71,7 +71,6 @@ export function recordReducer(state = initialState, action: fromActions.RecordAc
     }
 
     case fromActions.UPDATE_RECORD_SUCCESS: {
-      const record = action.payload;
       const records = state.records;
       records.filter((item) => {
         // if (item.id === record.id) {

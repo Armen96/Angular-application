@@ -3,7 +3,7 @@ import {Actions, Effect, ofType} from '@ngrx/effects';
 import * as fromAction from '../actions/auth.actions';
 import {catchError, map, switchMap} from 'rxjs/operators';
 import {of} from 'rxjs';
-import {AuthService} from '../../../services/auth/auth.service';
+import {AuthService} from '../../../services';
 
 @Injectable()
 export class AuthEffects {
@@ -46,6 +46,18 @@ export class AuthEffects {
       return this.authService.logout().pipe(
         map(() => new fromAction.LogoutSuccess()),
         catchError(error => of(new fromAction.LogoutFail(error)))
+      );
+    })
+  );
+
+  @Effect()
+  search$ = this.actions$.pipe(
+    ofType(fromAction.SEARCH),
+    map((action: fromAction.Search) => action.payload),
+    switchMap((data) => {
+      return this.authService.searchPerson(data).pipe(
+        map((response) => new fromAction.SearchSuccess(response.users)),
+        catchError(error => of(new fromAction.SearchFail(error)))
       );
     })
   );

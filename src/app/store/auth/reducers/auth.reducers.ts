@@ -4,8 +4,11 @@ import {UsersInterface} from '../../../interfaces/auth/users.interface';
 import {environment} from '../../../../environments/environment';
 
 export interface State {
-  user: UsersInterface[];
+  user: UsersInterface;
   token: string;
+  friends: any;
+  messages: any;
+  usersList: UsersInterface[];
   isLoading: boolean;
   isLoaded: boolean;
   error?: HttpErrorResponse;
@@ -14,6 +17,9 @@ export interface State {
 export const initialState: State = {
   user: null,
   token: '',
+  friends: null,
+  messages: null,
+  usersList: [],
   isLoading: false,
   isLoaded: false,
   error: null
@@ -24,7 +30,8 @@ export function authReducer(state = initialState, action: fromActions.AuthAction
 
     case fromActions.LOGIN:
     case fromActions.REGISTER:
-    case fromActions.LOGOUT: {
+    case fromActions.LOGOUT:
+    case fromActions.SEARCH: {
       return {
         ...state,
         isLoading: true,
@@ -58,9 +65,21 @@ export function authReducer(state = initialState, action: fromActions.AuthAction
       };
     }
 
+    case fromActions.SEARCH_SUCCESS: {
+      const usersList = action.payload;
+
+      return {
+        ...state,
+        usersList,
+        isLoading: false,
+        isLoaded: true
+      };
+    }
+
     case fromActions.LOGIN_FAIL:
     case fromActions.REGISTER_FAIL:
-    case fromActions.LOGOUT_FAIL: {
+    case fromActions.LOGOUT_FAIL:
+    case fromActions.SEARCH_FAIL: {
       const error = action.payload;
       return {
         ...state,

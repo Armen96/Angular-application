@@ -22,6 +22,12 @@ import { LoginComponent } from './modules/auth/login/login.component';
 import { RegisterComponent } from './modules/auth/register/register.component';
 import {HttpInterceptorService} from './modules/auth/http-interceptor.service';
 import { ProfileComponent } from './modules/auth/profile/profile.component';
+import {MatIconModule} from '@angular/material/icon';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatButtonModule} from '@angular/material/button';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -57,7 +63,13 @@ export function createTranslateLoader(http: HttpClient) {
     }),
     BrowserAnimationsModule,
     IgxListModule,
-    IgxBannerModule
+    IgxBannerModule,
+    MatIconModule,
+    MatMenuModule,
+    MatSidenavModule,
+    MatListModule,
+    MatToolbarModule,
+    MatButtonModule,
   ],
   providers: [
     ...appServices,

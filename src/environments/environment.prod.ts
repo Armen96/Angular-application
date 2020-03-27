@@ -14,12 +14,13 @@ export const environment = {
     USER: 'app-user',
   },
   REST_URL: 'https://jsonplaceholder.typicode.com',
-  LOCAL_REST_URL: 'https://finance-manager-nodejs.herokuapp.com/api',
+  LOCAL_REST_URL: 'http://localhost:4205/api',
   RECORDS: {
     SERVICE_PATH: '/records'
   },
   USERS: {
     LOGIN: '/users/login',
-    REGISTER: '/users/register'
+    REGISTER: '/users/register',
+    SEARCH: '/users/search'
   }
 };

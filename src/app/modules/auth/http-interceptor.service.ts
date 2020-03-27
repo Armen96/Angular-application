@@ -14,8 +14,8 @@ export class HttpInterceptorService implements HttpInterceptor {
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const token = this.inj.get(AuthService).getToken();
     const header = {};
-    header[environment.AUTH.TOKEN_HEADER_NAME] = token;
-    header['authorization'] = token;
+    header[environment.AUTH.TOKEN_HEADER_NAME] = 'Bearer ' + token;
+    header['authorization'] = 'Bearer ' + token;
     if (token) {
       req = req.clone({ setHeaders: header });
     }
@@ -38,5 +38,4 @@ export class HttpInterceptorService implements HttpInterceptor {
         return throwError(response);
       }));
   }
-
 }

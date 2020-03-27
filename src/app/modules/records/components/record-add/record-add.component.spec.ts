@@ -12,7 +12,7 @@ import {FakeTranslateModule} from '../../../../../test-utils/test-utils';
 import {IgxGridSharedModule} from '../../../../shared/ignite-ui-defaults/igx-grid-shared-module.module';
 import {SharedModule} from '../../../../shared/shared.module';
 import {AuthService} from '../../../../services';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import {HttpClientModule} from '@angular/common/http';
 
 @Component({
   template: ''

@@ -41,56 +41,6 @@
   width: 350px;
 }
 
-.btn-color {
-  border: none;
-  border-radius: 2%;
-  width: 100%;
-  background: #00ADBF;
-  color: #fff;
-  font-weight: 600;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.btn-color::before {
-  display: block;
-  content: ' ';
-  height: 0;
-  border-radius: 2%;
-  border-top: 25px solid transparent;
-  border-left: 50px solid #009FB2;
-  border-bottom: 25px solid transparent;
-}
-.btn-color:disabled {
-  opacity: 0.8;
-}
-
-.btn-color span {
-  margin-left: -50px;
-  flex-grow: 1;
-  text-align: center;
-}
-
-.btn-color:active {
-  transform: translateY(4px);
-}
-
-.disabled {
-  pointer-events: none;
-  cursor: progress;
-  opacity: .5;
-}
-
-.btn-color:active {
-  transform: translateY(4px);
-}
-
-.disabled {
-  pointer-events: none;
-  cursor: progress;
-  opacity: .5;
-}
-
 .version-text {
   font-size: smaller;
 }

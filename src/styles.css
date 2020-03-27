@@ -596,3 +596,59 @@ a.back-navigation:hover > span {
   font-weight: 600;
   line-height: 1.5;
 }
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+.btn-color {
+  border: none;
+  border-radius: 2%;
+  width: 100%;
+  background-image: linear-gradient(to right, #ff9100, #8b0000);
+  color: #fff;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 0!important;
+}
+
+.btn-color:disabled {
+  opacity: 0.8;
+}
+
+.btn-color span {
+  margin-left: -50px;
+  flex-grow: 1;
+  text-align: center;
+}
+
+.btn-color:active {
+  transform: translateY(4px);
+}
+
+.btn-color:active {
+  transform: translateY(4px);
+}
+
+.disabled {
+  pointer-events: none;
+  cursor: progress;
+  opacity: .5;
+}
+
+.igx-container {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  background: #fff;
+  height: 100%;
+  overflow: hidden;
+  z-index: 0;
+  border-radius: 0px;
+}

@@ -1,40 +1,46 @@
 <div>
-  <div class="login-form">
-    <form #form="ngForm" id="login-form" class="smart-form client-form check-required">
-      <h2 class="alert alert-danger" *ngIf="error">Error</h2>
+  <div class="mb-20">
+    <h3 class="default-text-color">Sign In</h3>
+  </div>
 
-      <fieldset>
-        <section>
-          <label class="label">Email: </label>
-          <label class="input">
-            <i class="icon-append fa fa-user"></i>
-            <input type="email" name="email" #email required />
-            <b class="tooltip tooltip-top-right">
-              <i class="fa fa-user txt-color-teal"></i>
-              Enter Email </b>
-          </label>
-        </section>
+  <div class="igx-container">
+    <div class="login-form">
+      <form #form="ngForm" id="login-form" class="smart-form client-form check-required">
+        <h2 class="alert alert-danger" *ngIf="error">Something went wrong, Please try again!</h2>
 
-        <section>
-          <label class="label">Password</label>
-          <label class="input">
-            <i class="icon-append fa fa-lock"></i>
-            <input type="password" name="password" #password required />
-            <b class="tooltip tooltip-top-right">
-              <i class="fa fa-lock txt-color-teal"></i>
-              Enter Password </b>
-          </label>
-        </section>
+        <fieldset>
+          <section>
+            <label class="label">Email: </label>
+            <label class="input">
+              <i class="icon-append fa fa-user"></i>
+              <input type="email" name="email" #email required />
+              <b class="tooltip tooltip-top-right">
+                <i class="fa fa-user txt-color-teal"></i>
+                Enter Email </b>
+            </label>
+          </section>
 
-        <section>
-          <button id="signInButton" type="button" class="btn-color clickable"
-                  (click)="login(email.value, password.value)">
-            <span>
-              Sign In
-             </span>
-          </button>
-        </section>
-      </fieldset>
-    </form>
+          <section>
+            <label class="label">Password</label>
+            <label class="input">
+              <i class="icon-append fa fa-lock"></i>
+              <input type="password" name="password" #password required />
+              <b class="tooltip tooltip-top-right">
+                <i class="fa fa-lock txt-color-teal"></i>
+                Enter Password </b>
+            </label>
+          </section>
+
+          <section>
+            <button type="button" class="btn-color clickable"
+                    (click)="login(email.value, password.value)">
+                <span>
+                Sign In
+               </span>
+            </button>
+          </section>
+        </fieldset>
+      </form>
+    </div>
   </div>
 </div>

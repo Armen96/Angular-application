@@ -17,7 +17,7 @@ import {recordReducer, featureEffects, authReducer} from './store';
 import { SharedModule } from './shared/shared.module';
 import { appServices } from './services';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import {IgxListModule} from 'igniteui-angular';
+import {IgxBannerModule, IgxListModule} from 'igniteui-angular';
 import { LoginComponent } from './modules/auth/login/login.component';
 import { RegisterComponent } from './modules/auth/register/register.component';
 import {HttpInterceptorService} from './modules/auth/http-interceptor.service';
@@ -56,7 +56,8 @@ export function createTranslateLoader(http: HttpClient) {
       }
     }),
     BrowserAnimationsModule,
-    IgxListModule
+    IgxListModule,
+    IgxBannerModule
   ],
   providers: [
     ...appServices,

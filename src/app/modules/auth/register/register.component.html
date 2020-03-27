@@ -1,7 +1,12 @@
 <div>
-  <div class="login-form">
+  <div class="mb-20">
+    <h3 class="default-text-color">Sign Up</h3>
+  </div>
+
+  <div class="igx-container">
+    <div class="login-form">
     <form #form="ngForm" id="login-form" class="smart-form client-form check-required">
-      <h2 class="alert alert-danger" *ngIf="error">Error</h2>
+      <h2 class="alert alert-danger" *ngIf="error">Something went wrong, Please try again!</h2>
 
       <fieldset>
         <section>
@@ -38,14 +43,15 @@
         </section>
 
         <section>
-          <button id="signInButton" type="button" class="btn-color clickable"
+          <button type="button" class="btn-color clickable"
                   (click)="register(name.value, email.value, password.value)">
-            <span>
-              Sign Up
-             </span>
+                <span>
+                Sign Up
+               </span>
           </button>
         </section>
       </fieldset>
     </form>
+  </div>
   </div>
 </div>

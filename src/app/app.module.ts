@@ -28,6 +28,8 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
+import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+const config: SocketIoConfig = { url: 'http://localhost:4205', options: {} };
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -70,6 +72,7 @@ export function createTranslateLoader(http: HttpClient) {
     MatListModule,
     MatToolbarModule,
     MatButtonModule,
+    SocketIoModule.forRoot(config)
   ],
   providers: [
     ...appServices,

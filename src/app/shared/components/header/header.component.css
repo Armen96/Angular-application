@@ -9,7 +9,7 @@ header.main-header {
   align-items: center;
   margin: 0;
   padding: 10px 20px;
-  background-color: white;
+  background-color: #eff0f0;
   background-repeat: repeat-x;
   position: relative;
   z-index: 9;
@@ -26,17 +26,17 @@ header.main-header {
 }
 
 .profile-settings-buttons a:hover {
-  background-color: #fff;
+  background-color: #eff0f0;
 }
 
 .profile-settings-buttons a:active {
-  background-color: #fff;
+  background-color: #eff0f0;
 }
 
 .profile-settings-buttons a:visited {
-  background-color: #fff;
+  background-color: #eff0f0;
 }
 
 .profile-settings-buttons a:link {
-  background-color: #fff;
+  background-color: #eff0f0;
 }

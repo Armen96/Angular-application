@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable, of} from 'rxjs';
-import {AppService} from '../../shared/services/app.service';
-import {environment} from '../../../environments/environment';
-import {SearchPersonInterface} from '../../interfaces/auth/search.person.interface';
+import {AppService} from '../shared/services/app.service';
+import {environment} from '../../environments/environment';
+import {SearchPersonInterface} from '../interfaces/auth/search.person.interface';
 
 @Injectable()
 export class AuthService extends AppService {

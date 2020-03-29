@@ -12,10 +12,16 @@ export class HttpInterceptorService implements HttpInterceptor {
   constructor(private inj: Injector) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    const token = this.inj.get(AuthService).getToken();
+    let token = this.inj.get(AuthService).getToken();
     const header = {};
-    header[environment.AUTH.TOKEN_HEADER_NAME] = 'Bearer ' + token;
-    header['authorization'] = 'Bearer ' + token;
+
+    if (token && !token.includes("Bearer")) {
+      token = 'Bearer ' + token;
+    }
+
+    header[environment.AUTH.TOKEN_HEADER_NAME] = token;
+    header['authorization'] = token;
+
     if (token) {
       req = req.clone({ setHeaders: header });
     }

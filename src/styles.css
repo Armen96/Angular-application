@@ -652,3 +652,47 @@ a.back-navigation:hover > span {
   z-index: 0;
   border-radius: 0px;
 }
+
+
+.overflow-auto {
+  overflow: auto;
+}
+
+.height-400 {
+  height: 400px;
+}
+
+.my-message {
+  background-color: white;
+  color: blue;
+}
+
+.user-message {
+  background-color: #0c7cd5;
+  color: white;
+}
+
+igx-icon {
+  cursor: pointer;
+  user-select: none;
+}
+
+.listItemLeftPanningStyle {
+  display: flex;
+  flex-direction: row-reverse;
+  background-color:orange;
+  color: white;
+  width: 100%;
+  padding-right: 10px;
+  align-items: center;
+}
+
+.listItemRightPanningStyle {
+  display: flex;
+  flex-direction: row;
+  background-color:limegreen;
+  color: white;
+  width: 100%;
+  padding-left: 10px;
+  align-items: center;
+}

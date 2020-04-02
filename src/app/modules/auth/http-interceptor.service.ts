@@ -31,14 +31,11 @@ export class HttpInterceptorService implements HttpInterceptor {
       }))
       .pipe(catchError((response, caught) => {
         if (response instanceof HttpErrorResponse) {
-          if (response.error.message) {
-            if (response.error.errorNumber === 'E050000001') {
-              console.log('Session expired, redirecting to login page');
-              const router = this.inj.get(Router);
-              router.navigateByUrl('/login');
-            } else {
-              alert('error');
-            }
+          if (response.status > 300 || response.error) {
+            console.log('Session expired, redirecting to login page');
+            this.inj.get(AuthService).logout();
+            const router = this.inj.get(Router);
+            router.navigateByUrl('/login');
           }
         }
         return throwError(response);

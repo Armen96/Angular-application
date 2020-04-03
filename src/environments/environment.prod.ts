@@ -21,6 +21,7 @@ export const environment = {
   USERS: {
     LOGIN: '/users/login',
     REGISTER: '/users/register',
-    SEARCH: '/users/search'
+    SEARCH: '/users/search',
+    ROOM: '/users/room'
   }
 };

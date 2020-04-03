@@ -1,7 +1,7 @@
 import { Action } from '@ngrx/store';
 import {PayloadAction} from '../../../shared/ngrx/payload-action';
-import {UsersInterface} from '../../../interfaces/auth/users.interface';
-import {SearchPersonInterface} from '../../../interfaces/auth/search.person.interface';
+import {UsersInterface} from '../../../interfaces/users.interface';
+import {SearchPersonInterface} from '../../../interfaces/search.person.interface';
 
 export const LOGIN = '[Auth] LOGIN';
 export const LOGIN_SUCCESS = '[Auth] LOGIN_SUCCESS';

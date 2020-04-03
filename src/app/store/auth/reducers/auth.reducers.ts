@@ -1,6 +1,6 @@
 import * as fromActions from '../actions/auth.actions';
 import {HttpErrorResponse} from '@angular/common/http';
-import {UsersInterface} from '../../../interfaces/auth/users.interface';
+import {UsersInterface} from '../../../interfaces/users.interface';
 import {environment} from '../../../../environments/environment';
 
 export interface State {

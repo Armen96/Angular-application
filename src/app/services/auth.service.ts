@@ -3,7 +3,8 @@ import { Injectable } from '@angular/core';
 import {Observable, of} from 'rxjs';
 import {AppService} from '../shared/services/app.service';
 import {environment} from '../../environments/environment';
-import {SearchPersonInterface} from '../interfaces/auth/search.person.interface';
+import {SearchPersonInterface} from '../interfaces/search.person.interface';
+import {UsersInterface} from '../interfaces/users.interface';
 
 @Injectable()
 export class AuthService extends AppService {
@@ -36,7 +37,7 @@ export class AuthService extends AppService {
     return this.getToken() !== null;
   }
 
-  getUser(): string {
+  getUser(): UsersInterface {
     let user = null;
     if (localStorage.getItem(environment.AUTH.USER)) {
       user = JSON.parse(localStorage.getItem(environment.AUTH.USER));

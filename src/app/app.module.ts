@@ -29,6 +29,9 @@ import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
+import { UserListComponent } from './modules/auth/profile/user-list/user-list.component';
+import { UserConversationComponent } from './modules/auth/profile/user-conversation/user-conversation.component';
+import { UserSearchComponent } from './modules/auth/profile/user-search/user-search.component';
 const config: SocketIoConfig = { url: 'http://localhost:4205', options: {} };
 
 export function createTranslateLoader(http: HttpClient) {
@@ -41,7 +44,10 @@ export function createTranslateLoader(http: HttpClient) {
     HomeComponent,
     LoginComponent,
     RegisterComponent,
-    ProfileComponent
+    ProfileComponent,
+    UserListComponent,
+    UserConversationComponent,
+    UserSearchComponent
   ],
   imports: [
     BrowserModule,

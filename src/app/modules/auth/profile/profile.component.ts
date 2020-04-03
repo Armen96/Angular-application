@@ -1,47 +1,29 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {select, Store} from '@ngrx/store';
 import {AppState} from '../../../shared/ngrx/appState';
 import * as fromStore from '../../../store/auth';
 import {takeUntil} from 'rxjs/operators';
 import {UnsubscriptionHandler} from '../../../shared/unsubscription-handler/unsubscription-handler';
-import {UsersInterface} from '../../../interfaces/auth/users.interface';
-import {AuthService} from '../../../services';
-import {ChatService} from '../../../services/chat.service';
+import {UsersInterface} from '../../../interfaces/users.interface';
 
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: []
 })
-export class ProfileComponent extends UnsubscriptionHandler implements OnInit {
-  public name = '';
-  public message = '';
+export class ProfileComponent extends UnsubscriptionHandler {
   public usersList: UsersInterface[];
   public selectedUser: UsersInterface;
-  public conversation = [];
-  public me;
+  public roomId = '';
+  public conversationStatus = false;
 
-  constructor(private store: Store<AppState>, private authService: AuthService, private chatService: ChatService) {
+  constructor(private store: Store<AppState>) {
     super();
-    this.me = authService.getUser();
-    console.log(this.me);
   }
 
-  ngOnInit() {
-    this.chatService.getMessages().subscribe((message) => {
-      // @ts-ignore
-      this.conversation = [...message];
-    });
-
-    this.chatService.getNewMessage().subscribe((message) => {
-      this.conversation.push(message);
-    });
-  }
-
-  onSubmit() {
-    if (this.name) {
-      this.store.dispatch(new fromStore.Search({name: this.name}));
-
+  onSubmit(name) {
+    if (name) {
+      this.store.dispatch(new fromStore.Search({name: name}));
       this.store.pipe(select(fromStore.getUsersList), takeUntil(this.unsubscribe$)).subscribe(
         state => {
           if (state) {
@@ -49,27 +31,21 @@ export class ProfileComponent extends UnsubscriptionHandler implements OnInit {
           }
         }
       );
-
-      this.name = '';
     }
   }
 
-  openConversation(user) {
-    this.selectedUser = user;
-    console.log('user', user);
+  openConversation(roomInfo) {
+    this.conversationStatus = false;
+    this.selectedUser = roomInfo.user;
+    this.roomId = roomInfo.roomId;
+
+    // TODO set loading spinner
+    setTimeout(() => {
+      this.conversationStatus = true;
+    }, 200);
   }
 
-  onSend() {
-    const date = new Date();
-    const generatedDate = `${date.getDate()}/${date.getMonth()}/${date.getFullYear()}`;
-
-    const newMessage = {
-      message: this.message,
-      user_id: this.me['_id'],
-      created_at: generatedDate
-    };
-
-    this.chatService.sendMessage(newMessage);
-    this.message = '';
+  closeChat(data) {
+    this.conversationStatus = false;
   }
 }

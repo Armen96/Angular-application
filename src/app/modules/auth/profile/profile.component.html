@@ -2,94 +2,18 @@
   <div class="row">
     <div class="col-md-12">
       <div class="col-md-4 col-sm-6">
-        <section class="sample-content">
-          <article class="sample-column">
-            <div class="input-group-form">
+        <app-user-search (onSubmit)="onSubmit($event)"></app-user-search>
 
-              <h4 class="sample-title default-text-color">find a new friend</h4>
-              <div class="row mt-20">
-                <div class="col-md-9">
-                  <igx-input-group type="box">
-                    <input id="name" igxInput name="name" type="text" [(ngModel)]="name"/>
-                    <label igxLabel for="name">Name</label>
-                    <igx-suffix>
-                      <igx-icon>person</igx-icon>
-                    </igx-suffix>
-                  </igx-input-group>
-                </div>
-
-                <div class="col-md-3">
-                  <button class="pull-right" igxButton="fab" igxButtonColor="#FBB13C" igxButtonBackground="#340068" igxRipple="#FBB13C" (click)="onSubmit()">
-                    <igx-icon fontSet="material">search</igx-icon>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </article>
-        </section>
+        <app-user-list *ngIf="usersList && usersList.length"
+                       [usersList]="usersList" (openConversation)="openConversation($event)"
+        ></app-user-list>
       </div>
 
       <div class="col-md-8 col-sm-6">
 
-        <section class="sample-content">
-          <article class="sample-column">
-            <div class="input-group-form">
-
-              <h4 class="sample-title default-text-color">conversation</h4>
-
-              <div class="row mt-20">
-               <div class="col-md-12 height-400">
-                 <igx-list style="overflow: auto!important;">
-                   <igx-list-item *ngFor="let info of conversation"
-                                  [ngStyle]="{'background-color': info.user_id === me['_id'] ? '#0c7cd5' : '#fff', 'color': info.user_id === me['_id'] ? '#fff' : '#0c7cd5'}">
-                     <span igxListLineTitle>{{ info.message }}</span>
-                     <span igxListLineSubTitle>{{ info.created_at }}</span>
-                   </igx-list-item>
-                 </igx-list>
-               </div>
-              </div>
-
-              <div class="row mt-20">
-                <div class="col-md-10">
-                    <igx-input-group type="box">
-                      <input id="message" igxInput name="message" type="text" [(ngModel)]="message"  (keyup.enter)="onSend()" />
-                      <label igxLabel for="message">Message</label>
-                      <igx-suffix>
-                        <igx-icon>message</igx-icon>
-                      </igx-suffix>
-                    </igx-input-group>
-                </div>
-
-                <div class="col-md-2">
-                  <button class="pull-right" igxButton="fab" igxButtonColor="#FBB13C" igxButtonBackground="#340068" igxRipple="#FBB13C" (click)="onSend()">
-                    <igx-icon fontSet="material">send</igx-icon>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </article>
-        </section>
+        <app-user-conversation *ngIf="conversationStatus" [selectedUser]="selectedUser" [roomId]="roomId" (closeChat)="closeChat($event)"></app-user-conversation>
 
       </div>
     </div>
-
-    <div class="col-md-12">
-
-      <div class="col-md-4 col-sm-6">
-        <section class="sample-content" *ngIf="usersList && usersList.length">
-          <article class="sample-column">
-
-            <igx-list>
-              <igx-list-item isHeader="true">Users</igx-list-item>
-              <igx-list-item *ngFor="let user of usersList" (click)="openConversation(user)">
-                {{ user.name + ' | ' + user.email }}
-              </igx-list-item>
-            </igx-list>
-
-          </article>
-        </section>
-      </div>
-    </div>
-
   </div>
 </div>

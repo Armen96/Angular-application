@@ -1,0 +1,40 @@
+<section class="sample-content">
+  <article class="sample-column">
+    <div class="input-group-form">
+
+      <h4 class="sample-title default-text-color">conversation</h4>
+
+      <h6 (click)="leaveTheRoom()">Leave chat *</h6>
+
+      <div class="row mt-20">
+        <div class="col-md-12 height-400">
+          <igx-list style="overflow: auto!important;">
+            <igx-list-item *ngFor="let info of conversation"
+                           [ngStyle]="{'background-color': info.from_id === me['_id'] ? '#0c7cd5' : '#fff', 'color': info.from_id === me['_id'] ? '#fff' : '#0c7cd5'}">
+              <span igxListLineTitle>{{ info.message }}</span>
+              <span igxListLineSubTitle>{{ info.created_at}}</span>
+            </igx-list-item>
+          </igx-list>
+        </div>
+      </div>
+
+      <div class="row mt-20">
+        <div class="col-md-10">
+          <igx-input-group type="box">
+            <input id="message" igxInput name="message" type="text" [(ngModel)]="message"  (keyup.enter)="onSendMessage()" />
+            <label igxLabel for="message">Message</label>
+            <igx-suffix>
+              <igx-icon>message</igx-icon>
+            </igx-suffix>
+          </igx-input-group>
+        </div>
+
+        <div class="col-md-2">
+          <button class="pull-right" igxButton="fab" igxButtonColor="#FBB13C" igxButtonBackground="#340068" igxRipple="#FBB13C" (click)="onSendMessage()">
+            <igx-icon fontSet="material">send</igx-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </article>
+</section>

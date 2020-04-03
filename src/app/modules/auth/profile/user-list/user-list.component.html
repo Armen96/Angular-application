@@ -1,0 +1,10 @@
+<section class="sample-content">
+  <article class="sample-column">
+    <igx-list>
+      <igx-list-item isHeader="true">Users</igx-list-item>
+      <igx-list-item *ngFor="let user of usersList" (click)="conversation(user)">
+        {{ user.name + ' | ' + user.email }}
+      </igx-list-item>
+    </igx-list>
+  </article>
+</section>

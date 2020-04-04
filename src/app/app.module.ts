@@ -32,6 +32,8 @@ import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
 import { UserListComponent } from './modules/auth/profile/user-list/user-list.component';
 import { UserConversationComponent } from './modules/auth/profile/user-conversation/user-conversation.component';
 import { UserSearchComponent } from './modules/auth/profile/user-search/user-search.component';
+import {ImageCropperModule} from 'ngx-img-cropper';
+import {ImageCropperModalComponent} from './shared/components/image-cropper-modal/image-cropper-modal.component';
 const config: SocketIoConfig = { url: 'http://localhost:4205', options: {} };
 
 export function createTranslateLoader(http: HttpClient) {
@@ -47,7 +49,11 @@ export function createTranslateLoader(http: HttpClient) {
     ProfileComponent,
     UserListComponent,
     UserConversationComponent,
-    UserSearchComponent
+    UserSearchComponent,
+    ImageCropperModalComponent
+  ],
+  exports: [
+    ImageCropperModalComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +63,7 @@ export function createTranslateLoader(http: HttpClient) {
     RouterModule,
     SharedModule,
     AppRoutingModule,
+    ImageCropperModule,
     StoreModule.forRoot({
       records: recordReducer,
       auth: authReducer

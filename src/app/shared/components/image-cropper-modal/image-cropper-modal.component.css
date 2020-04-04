@@ -1,0 +1,17 @@
+.modal {
+  display: block;
+}
+
+input[type="file"] {
+  position: absolute;
+  clip: rect(0px, 0px, 0px, 0px);
+}
+
+.document-icon-size {
+  font-size: 15rem;
+}
+
+.button-default-color {
+  background-color: #e8519e;
+  color: white;
+}

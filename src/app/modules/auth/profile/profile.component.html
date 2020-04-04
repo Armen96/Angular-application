@@ -1,19 +1,32 @@
-<div class="sample-wrapper">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="col-md-4 col-sm-6">
-        <app-user-search (onSubmit)="onSubmit($event)"></app-user-search>
+<div class="super-container">
+  <div class="headers-height">
+    <app-header></app-header>
+  </div>
 
-        <app-user-list *ngIf="usersList && usersList.length"
-                       [usersList]="usersList" (openConversation)="openConversation($event)"
-        ></app-user-list>
-      </div>
+  <div class="main-container">
+    <div class="main-panel">
+      <div class="container">
+        <div class="sample-wrapper">
+          <div class="row">
+            <div class="col-md-12">
+              <div class="col-md-4 col-sm-6">
+                <app-user-search (onSubmit)="onSubmit($event)"></app-user-search>
 
-      <div class="col-md-8 col-sm-6">
+                <app-user-list *ngIf="usersList && usersList.length"
+                               [usersList]="usersList" (openConversation)="openConversation($event)"
+                ></app-user-list>
+              </div>
 
-        <app-user-conversation *ngIf="conversationStatus" [selectedUser]="selectedUser" [roomId]="roomId" (closeChat)="closeChat($event)"></app-user-conversation>
+              <div class="col-md-8 col-sm-6">
 
+                <app-user-conversation *ngIf="conversationStatus" [selectedUser]="selectedUser" [roomId]="roomId" (closeChat)="closeChat($event)"></app-user-conversation>
+
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+

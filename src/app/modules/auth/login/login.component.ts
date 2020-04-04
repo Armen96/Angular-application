@@ -1,11 +1,11 @@
 import {Component, OnDestroy} from '@angular/core';
 import {Subject} from 'rxjs';
-import {HttpErrorResponse} from '@angular/common/http';
 import {select, Store} from '@ngrx/store';
 import {AppState} from '../../../shared/ngrx/appState';
 import * as fromStore from '../../../store/auth';
 import {Router} from '@angular/router';
 import {takeUntil} from 'rxjs/operators';
+import {AuthService} from '../../../services';
 
 @Component({
   selector: 'app-login',
@@ -14,13 +14,14 @@ import {takeUntil} from 'rxjs/operators';
 })
 export class LoginComponent implements OnDestroy {
   private unsubscribe$: Subject<void> = new Subject();
-
-  error: HttpErrorResponse;
+  emailHasError = '';
+  passwordHasError = '';
   loader: boolean;
 
   constructor(
     private store: Store<AppState>,
-    protected router: Router
+    protected router: Router,
+    protected authService: AuthService
   ) {}
 
   ngOnDestroy() {
@@ -29,15 +30,22 @@ export class LoginComponent implements OnDestroy {
   }
 
   login(email: string, password: string) {
-    this.error = null;
-    this.store.dispatch(new fromStore.Login({email, password}));
+    const emailStatus = this.authService.emailVerification(email);
+    const passwordStatus = this.authService.passwordVerification(password);
 
-    this.store.pipe(select(fromStore.getUser), takeUntil(this.unsubscribe$)).subscribe(
-      state => {
-        if (state) {
-          this.router.navigate(['/profile']);
+    this.emailHasError = emailStatus.message;
+    this.passwordHasError = passwordStatus.message;
+
+    if (!this.emailHasError && !this.passwordHasError) {
+      this.store.dispatch(new fromStore.Login({email, password}));
+
+      this.store.pipe(select(fromStore.getUser), takeUntil(this.unsubscribe$)).subscribe(
+        state => {
+          if (state) {
+            this.router.navigate(['/profile']);
+          }
         }
-      }
-    );
+      );
+    }
   }
 }

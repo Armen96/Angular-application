@@ -2,37 +2,31 @@
   <article class="sample-column">
     <div class="input-group-form">
 
-      <h4 class="sample-title default-text-color">conversation</h4>
+      <div id="frame">
+        <div class="content">
+          <div class="contact-profile">
+            <img src="{{ selectedUser.image }}" alt="{{ selectedUser.name}}" />
+            <p>{{ selectedUser.name}}</p>
 
-      <h6 (click)="leaveTheRoom()">Leave chat *</h6>
+            <div class="social-media">
+              <i class="fa fa-close" aria-hidden="true" (click)="leaveTheRoom()"></i>
+            </div>
+          </div>
+          <div class="messages">
+            <ul>
+              <li *ngFor="let info of conversation" class="sent" [ngClass]="(info.from_id === me['_id']) ? 'sent' : 'replies'">
+                <img src="{{ (info.from_id === me['_id']) ? me.image : selectedUser.image }}" alt="" />
+                <p>{{ info.message }}</p>
+              </li>
+            </ul>
+          </div>
 
-      <div class="row mt-20">
-        <div class="col-md-12 height-400">
-          <igx-list style="overflow: auto!important;">
-            <igx-list-item *ngFor="let info of conversation"
-                           [ngStyle]="{'background-color': info.from_id === me['_id'] ? '#0c7cd5' : '#fff', 'color': info.from_id === me['_id'] ? '#fff' : '#0c7cd5'}">
-              <span igxListLineTitle>{{ info.message }}</span>
-              <span igxListLineSubTitle>{{ info.created_at}}</span>
-            </igx-list-item>
-          </igx-list>
-        </div>
-      </div>
-
-      <div class="row mt-20">
-        <div class="col-md-10">
-          <igx-input-group type="box">
-            <input id="message" igxInput name="message" type="text" [(ngModel)]="message"  (keyup.enter)="onSendMessage()" />
-            <label igxLabel for="message">Message</label>
-            <igx-suffix>
-              <igx-icon>message</igx-icon>
-            </igx-suffix>
-          </igx-input-group>
-        </div>
-
-        <div class="col-md-2">
-          <button class="pull-right" igxButton="fab" igxButtonColor="#FBB13C" igxButtonBackground="#340068" igxRipple="#FBB13C" (click)="onSendMessage()">
-            <igx-icon fontSet="material">send</igx-icon>
-          </button>
+          <div class="message-input">
+            <div class="wrap">
+              <input type="text" placeholder="Write your message..." [(ngModel)]="message"  (keyup.enter)="onSendMessage()"/>
+              <button class="submit default-background-color" (click)="onSendMessage()"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

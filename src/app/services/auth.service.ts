@@ -18,9 +18,9 @@ export class AuthService extends AppService {
     return this.http.post(url, {email, password});
   }
 
-  register(name: string, email: string, password: string): Observable<any> {
+  register(data): Observable<any> {
     const url = this.getUrl(environment.USERS.REGISTER, '');
-    return this.http.post(url, {name, email, password});
+    return this.http.post(url, data);
   }
 
   logout() {
@@ -49,5 +49,54 @@ export class AuthService extends AppService {
   searchPerson(person: SearchPersonInterface): Observable<any> {
     const url = this.getUrl(environment.USERS.SEARCH, '');
     return this.http.post(url, person);
+  }
+
+  emailVerification(email) {
+    let message = "";
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    const status = re.test(String(email).toLowerCase());
+
+    if (!status) { message = 'Invalid Email Address'; }
+
+    return {
+      status: status,
+      message: message
+    };
+  }
+
+  passwordVerification(password) {
+    let message = "";
+    const status = password.length > 3;
+
+    if (!status) { message = 'Invalid Password'; }
+
+    return {
+      status: status,
+      message: message
+    };
+  }
+
+  nameVerification(name) {
+    let message = "";
+    const status = name.length > 3;
+
+    if (!status) { message = 'Invalid Name'; }
+
+    return {
+      status: status,
+      message: message
+    };
+  }
+
+  imageVerification(image) {
+    let message = "";
+    const status = !!image;
+
+    if (!status) { message = 'Invalid Image File'; }
+
+    return {
+      status: status,
+      message: message
+    };
   }
 }

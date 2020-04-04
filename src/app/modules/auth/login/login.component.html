@@ -1,45 +1,40 @@
-<div>
-  <div class="mb-20">
-    <h3 class="default-text-color">Sign In</h3>
-  </div>
+<div class="limiter">
+  <div class="container-login100">
+    <div class="login100-more" style="background-image: url('../../../../assets/img/bg-01.jpg');"></div>
 
-  <div class="igx-container">
-    <div class="login-form">
-      <form #form="ngForm" id="login-form" class="smart-form client-form check-required">
-        <h2 class="alert alert-danger" *ngIf="error">Something went wrong, Please try again!</h2>
+    <div class="wrap-login100 p-l-50 p-r-50 p-t-72 p-b-50">
+      <form #form="ngForm" class="login100-form validate-form">
+					<span class="login100-form-title p-b-59">
+						Sign In
+					</span>
 
-        <fieldset>
-          <section>
-            <label class="label">Email: </label>
-            <label class="input">
-              <i class="icon-append fa fa-user"></i>
-              <input type="email" name="email" #email required />
-              <b class="tooltip tooltip-top-right">
-                <i class="fa fa-user txt-color-teal"></i>
-                Enter Email </b>
-            </label>
-          </section>
+        <div class="wrap-input100 validate-input" data-validate = "Valid email is required: ex@abc.xyz">
+          <span class="label-input100">Email</span>
+          <input class="input100" type="email" name="email" #email placeholder="Email address">
+          <span class="focus-input100"></span>
+          <p class="default-text-color" *ngIf="emailHasError">{{ emailHasError }}</p>
+        </div>
 
-          <section>
-            <label class="label">Password</label>
-            <label class="input">
-              <i class="icon-append fa fa-lock"></i>
-              <input type="password" name="password" #password required />
-              <b class="tooltip tooltip-top-right">
-                <i class="fa fa-lock txt-color-teal"></i>
-                Enter Password </b>
-            </label>
-          </section>
+        <div class="wrap-input100 validate-input" data-validate = "Password is required">
+          <span class="label-input100">Password</span>
+          <input class="input100" name="password" type="password" #password placeholder="*************">
+          <span class="focus-input100"></span>
+          <p class="default-text-color" *ngIf="passwordHasError">{{ passwordHasError }}</p>
+        </div>
 
-          <section>
-            <button type="button" class="btn-color clickable"
-                    (click)="login(email.value, password.value)">
-                <span>
-                Sign In
-               </span>
+        <div class="container-login100-form-btn">
+          <div class="wrap-login100-form-btn">
+            <div class="login100-form-bgbtn"></div>
+            <button type="button" class="login100-form-btn"  (click)="login(email.value, password.value)">
+              Sign In
             </button>
-          </section>
-        </fieldset>
+          </div>
+
+          <a [routerLink]="'/register'" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">
+            Sign Up
+            <i class="fa fa-long-arrow-right m-l-5"></i>
+          </a>
+        </div>
       </form>
     </div>
   </div>

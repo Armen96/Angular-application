@@ -2,12 +2,13 @@ import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {AuthService} from '../../../../services';
 import {UsersInterface} from '../../../../interfaces/users.interface';
 import {ConversationInterface} from '../../../../interfaces/conversation.interface';
-import {ChatService} from '../../../../services/chat.service';
+import {ChatService} from '../../../../services';
+declare var $: any;
 
 @Component({
   selector: 'app-user-conversation',
   templateUrl: './user-conversation.component.html',
-  styleUrls: []
+  styleUrls: ['./style.css']
 })
 export class UserConversationComponent implements OnInit {
   @Input() selectedUser: UsersInterface;
@@ -25,10 +26,12 @@ export class UserConversationComponent implements OnInit {
     if (this.roomId) {
       this.chatService.getAllMessages(this.roomId).subscribe((message: ConversationInterface[]) => {
         this.conversation = message;
+        $(".messages").animate({ scrollTop: $(document).height() }, "fast");
       });
 
       this.chatService.getNewMessage().subscribe((message: ConversationInterface) => {
         this.conversation.push(message);
+        $(".messages").animate({ scrollTop: $(document).height() }, "fast");
       });
     }
   }

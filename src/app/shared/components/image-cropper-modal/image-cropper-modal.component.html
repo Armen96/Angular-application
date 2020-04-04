@@ -1,0 +1,53 @@
+<div class="modal fade in">
+  <div class="modal-dialog mt-100" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Upload Image File</h5>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-xs-12 text-center">
+            <div class="form-group">
+              <input type="file" class="form-control" id="fileupload" tabindex="-1" [accept]="acceptFiles"
+                     (change)="fileChangeListener($event)">
+              <div class="bootstrap-filestyle input-group">
+                <input type="text" class="form-control" disabled [value]="file?.name">
+                <span class="group-span-filestyle input-group-btn" tabindex="0">
+                  <label for="fileupload" class="btn btn-default ">
+                    <span style="margin-right: 3px;" class="icon-span-filestyle glyphicon glyphicon-folder-open"></span>
+                    <span class="buttonText"></span>
+                  </label>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-xs-12">
+            <div class="panel">
+              <div class="panel-body text-center">
+                <img-cropper *ngIf="isFileImageType || !file" #cropper [image]="data" [settings]="cropperSettings"></img-cropper>
+                <span *ngIf="isFilePDFType" class="fa fa-file-pdf-o text-primary document-icon-size"></span>
+                <span *ngIf="isFileWordType" class="fa fa-file-word-o text-primary document-icon-size"></span>
+                <span *ngIf="isFileExcelType" class="fa fa-file-excel-o text-primary document-icon-size"></span>
+                <span *ngIf="isFilePowerPointType" class="fa fa-file-powerpoint-o text-primary document-icon-size"></span>
+              </div>
+            </div>
+          </div>
+          <div *ngIf="formatError" class="col-xs-12 text-right text-danger">
+            <span>FILE FORMAT EXCEPTIONS</span>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn button-default-color" [disabled]="!isFileFormatValid()" (click)="clickedSubmit()">
+          Submit
+        </button>
+        <button type="button" class="btn btn-secondary" (click)="clickedCancel($event)">
+          Cancel
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="modal-backdrop fade in"></div>

@@ -30,7 +30,7 @@ export class AuthEffects {
     ofType(fromAction.REGISTER),
     map((action: fromAction.Register) => action.payload),
     switchMap((data) => {
-      return this.authService.register(data.name, data.email, data.password).pipe(
+      return this.authService.register(data).pipe(
         map(response => {
           return new fromAction.RegisterSuccess(response);
         }),

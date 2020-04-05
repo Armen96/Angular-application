@@ -30,6 +30,7 @@ export class AuthService extends AppService {
   }
 
   getToken(): string {
+    console.log('TOKEN_HEADER_NAME', localStorage.getItem(environment.AUTH.TOKEN_HEADER_NAME) );
     return localStorage.getItem(environment.AUTH.TOKEN_HEADER_NAME) || null;
   }
 
@@ -98,5 +99,10 @@ export class AuthService extends AppService {
       status: status,
       message: message
     };
+  }
+
+  addFriend(user: UsersInterface): Observable<any> {
+    const url = this.getUrl(environment.USERS.FRIEND, '');
+    return this.http.post(url, { friend: user });
   }
 }

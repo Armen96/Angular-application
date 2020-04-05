@@ -1,25 +1,38 @@
-<section class="sample-content">
-  <article class="sample-column">
-    <div class="input-group-form">
+<div class="messaging">
+    <div class="inbox_msg">
+      <div class="inbox_people">
+        <div class="headind_srch">
 
-      <h4 class="sample-title default-text-color">find a new friend</h4>
-      <div class="row mt-20">
-        <div class="col-md-9">
-          <igx-input-group type="box">
-            <input id="name" igxInput name="name" type="text" [(ngModel)]="name"/>
-            <label igxLabel for="name">Name</label>
-            <igx-suffix>
-              <igx-icon>person</igx-icon>
-            </igx-suffix>
-          </igx-input-group>
+          <div class="row mt-20">
+            <div class="col-md-9">
+              <igx-input-group type="box">
+                <input id="name" igxInput name="name" type="text" [(ngModel)]="name"/>
+                <label igxLabel for="name">Name</label>
+                <igx-suffix>
+                  <igx-icon>person</igx-icon>
+                </igx-suffix>
+              </igx-input-group>
+            </div>
+
+            <div class="col-md-3">
+              <button class="pull-right" igxButton="fab" igxButtonColor="#FBB13C" igxButtonBackground="#32465a" igxRipple="#FBB13C" (click)="onSearch()">
+                <igx-icon fontSet="material">search</igx-icon>
+              </button>
+            </div>
+          </div>
         </div>
 
-        <div class="col-md-3">
-          <button class="pull-right" igxButton="fab" igxButtonColor="#FBB13C" igxButtonBackground="#32465a" igxRipple="#FBB13C" (click)="onSearch()">
-            <igx-icon fontSet="material">search</igx-icon>
-          </button>
+        <div class="inbox_chat">
+          <div *ngIf="usersList && usersList.length" class="chat_list active_chat">
+            <div class="chat_people" *ngFor="let user of usersList" (click)="conversation(user)">
+              <div class="chat_img"> <img src="{{ user.image }}" alt="sunil"> </div>
+              <div class="chat_ib">
+                <h5> {{ user.name + ' | ' + user.email }} <span class="chat_date">*</span></h5>
+                <p></p>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
     </div>
-  </article>
-</section>
+  </div>
+</div>

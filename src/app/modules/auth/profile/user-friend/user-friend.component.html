@@ -1,0 +1,27 @@
+<div class="messaging">
+  <div class="inbox_msg">
+    <div class="inbox_people">
+      <div class="headind_srch">
+        <div class="row mt-20">
+          <div class="col-md-9">
+            <h5>Chats</h5>
+          </div>
+
+          <div class="col-md-3"></div>
+        </div>
+      </div>
+
+      <div class="inbox_chat">
+        <div *ngIf="friends && friends.length" class="chat_list active_chat">
+          <div class="chat_people" *ngFor="let user of friends" (click)="conversation(user)">
+            <div class="chat_img"> <img src="{{ user.image }}" alt="sunil"> </div>
+            <div class="chat_ib">
+              <h5> {{ user.name }} <span class="chat_date">*</span></h5>
+              <p></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,10 +1,7 @@
 import {Component} from '@angular/core';
-import {select, Store} from '@ngrx/store';
-import {AppState} from '../../../shared/ngrx/appState';
-import * as fromStore from '../../../store/auth';
-import {takeUntil} from 'rxjs/operators';
 import {UnsubscriptionHandler} from '../../../shared/unsubscription-handler/unsubscription-handler';
 import {UsersInterface} from '../../../interfaces/users.interface';
+import {AuthService} from '../../../services';
 
 @Component({
   selector: 'app-profile',
@@ -12,26 +9,15 @@ import {UsersInterface} from '../../../interfaces/users.interface';
   styleUrls: []
 })
 export class ProfileComponent extends UnsubscriptionHandler {
-  public usersList: UsersInterface[];
   public selectedUser: UsersInterface;
   public roomId = '';
   public conversationStatus = false;
+  public friends: UsersInterface[];
 
-  constructor(private store: Store<AppState>) {
+  constructor(protected authService: AuthService) {
     super();
-  }
-
-  onSubmit(name) {
-    if (name) {
-      this.store.dispatch(new fromStore.Search({name: name}));
-      this.store.pipe(select(fromStore.getUsersList), takeUntil(this.unsubscribe$)).subscribe(
-        state => {
-          if (state) {
-            this.usersList = state;
-          }
-        }
-      );
-    }
+    const authUser = authService.getUser();
+    this.friends = authUser.friends;
   }
 
   openConversation(roomInfo) {

@@ -1,22 +1,25 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {AuthService, ChatService} from '../../../../services';
 import {UsersInterface} from '../../../../interfaces/users.interface';
-import {ChatService} from '../../../../services/chat.service';
-import {AuthService} from '../../../../services';
 import {RoomsInterface} from '../../../../interfaces/rooms.interface';
 
 @Component({
-  selector: 'app-user-list',
-  templateUrl: './user-list.component.html',
-  styleUrls: []
+  selector: 'app-user-friend',
+  templateUrl: './user-friend.component.html',
+  styleUrls: ['./user-friend.component.css']
 })
-export class UserListComponent {
-  @Input() usersList: UsersInterface[];
+export class UserFriendComponent implements OnInit {
   @Output() openConversation = new EventEmitter();
-  public me: UsersInterface;
+  @Input() friends: UsersInterface[];
+  usersList: UsersInterface[];
+  me: UsersInterface;
   public shortId: string;
 
-  constructor(protected chatService: ChatService, protected authService: AuthService) {
+  constructor(protected authService: AuthService, protected chatService: ChatService) {
     this.me = authService.getUser();
+  }
+
+  ngOnInit(): void {
   }
 
   conversation(user) {

@@ -40,10 +40,9 @@ export class HeaderComponent extends UnsubscriptionHandler {
   }
 
   logout() {
+    this.isLogged = false;
     this.authService.logout();
     this.user = null;
-    this.isLogged = false;
-
-    this.router.navigate(['/']);
+    this.router.navigate(['/login']);
   }
 }

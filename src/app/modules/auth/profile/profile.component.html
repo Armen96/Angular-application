@@ -5,27 +5,32 @@
 
   <div class="main-container">
     <div class="main-panel">
-      <div class="container">
+
+
         <div class="sample-wrapper">
           <div class="row">
-            <div class="col-md-12">
-              <div class="col-md-4 col-sm-6">
-                <app-user-search (onSubmit)="onSubmit($event)"></app-user-search>
-
-                <app-user-list *ngIf="usersList && usersList.length"
-                               [usersList]="usersList" (openConversation)="openConversation($event)"
-                ></app-user-list>
+            <div class="col-md-12" style="padding: 0">
+              <div class="col-md-3" style="padding: 0 15px">
+                <app-user-search (openConversation)="openConversation($event)"></app-user-search>
               </div>
 
-              <div class="col-md-8 col-sm-6">
+              <div class="col-md-6 col-sm-6">
+                <app-user-conversation *ngIf="conversationStatus"
+                                       [selectedUser]="selectedUser" [roomId]="roomId"
+                                       (closeChat)="closeChat($event)"
+                ></app-user-conversation>
+              </div>
 
-                <app-user-conversation *ngIf="conversationStatus" [selectedUser]="selectedUser" [roomId]="roomId" (closeChat)="closeChat($event)"></app-user-conversation>
-
+              <div class="col-md-3">
+                <app-user-friend
+                  (openConversation)="openConversation($event)"
+                  [friends]="friends"
+                ></app-user-friend>
               </div>
             </div>
           </div>
         </div>
-      </div>
+
     </div>
   </div>
 </div>

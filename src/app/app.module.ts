@@ -29,11 +29,11 @@ import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
 import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
-import { UserListComponent } from './modules/auth/profile/user-list/user-list.component';
 import { UserConversationComponent } from './modules/auth/profile/user-conversation/user-conversation.component';
 import { UserSearchComponent } from './modules/auth/profile/user-search/user-search.component';
 import {ImageCropperModule} from 'ngx-img-cropper';
 import {ImageCropperModalComponent} from './shared/components/image-cropper-modal/image-cropper-modal.component';
+import { UserFriendComponent } from './modules/auth/profile/user-friend/user-friend.component';
 const config: SocketIoConfig = { url: 'http://localhost:4205', options: {} };
 
 export function createTranslateLoader(http: HttpClient) {
@@ -47,10 +47,10 @@ export function createTranslateLoader(http: HttpClient) {
     LoginComponent,
     RegisterComponent,
     ProfileComponent,
-    UserListComponent,
     UserConversationComponent,
     UserSearchComponent,
-    ImageCropperModalComponent
+    ImageCropperModalComponent,
+    UserFriendComponent
   ],
   exports: [
     ImageCropperModalComponent

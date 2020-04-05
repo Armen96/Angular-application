@@ -22,6 +22,7 @@ export const environment = {
     LOGIN: '/users/login',
     REGISTER: '/users/register',
     SEARCH: '/users/search',
-    ROOM: '/users/room'
+    ROOM: '/users/room',
+    FRIEND: '/users/friend'
   }
 };

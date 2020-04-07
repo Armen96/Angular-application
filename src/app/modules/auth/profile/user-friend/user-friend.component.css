@@ -48,7 +48,7 @@ img{ max-width:100%;}
   width: 88%;
 }
 
-.chat_people{ overflow:hidden; clear:both;}
+.chat_people{ overflow:hidden; clear:both; padding: 10px 0}
 .chat_list {
   border-bottom: 1px solid #c4c4c4;
   margin: 0;

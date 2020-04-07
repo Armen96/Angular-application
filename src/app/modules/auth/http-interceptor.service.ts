@@ -1,15 +1,16 @@
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable, Injector } from '@angular/core';
-import { Router } from '@angular/router';
+// import { Router } from '@angular/router';
 import { Observable, throwError } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import {AuthService} from '../../services';
 import {environment} from '../../../environments/environment';
+import {UiToastService} from '../../shared/ui-toast/ui-toast.service';
 
 @Injectable()
 export class HttpInterceptorService implements HttpInterceptor {
 
-  constructor(private inj: Injector) { }
+  constructor(private inj: Injector, protected uiToastService: UiToastService) { }
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     let token = this.inj.get(AuthService).getToken();
@@ -34,8 +35,9 @@ export class HttpInterceptorService implements HttpInterceptor {
           if (response.status > 300 || response.error) {
             console.log('Session expired, redirecting to login page');
             this.inj.get(AuthService).logout();
-            const router = this.inj.get(Router);
-            router.navigateByUrl('/login');
+            // const router = this.inj.get(Router);
+            // router.navigateByUrl('/login');
+            this.uiToastService.showMessage(response.error.message || 'Something went wrong');
           }
         }
         return throwError(response);

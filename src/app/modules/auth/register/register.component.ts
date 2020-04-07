@@ -63,7 +63,9 @@ export class RegisterComponent implements OnDestroy {
       this.store.pipe(select(fromStore.getUser), takeUntil(this.unsubscribe$)).subscribe(
         state => {
           if (state) {
-            this.router.navigate(['/profile']);
+            setTimeout(() => {
+              this.router.navigate(['/profile']);
+            }, 1000);
           }
         }
       );

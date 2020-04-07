@@ -63,13 +63,13 @@ export class UserSearchComponent extends UnsubscriptionHandler {
   addNewFriend(user) {
     this.authService.addFriend(user).subscribe(data => { console.log(data); });
 
-    const friend = {
-      _id: user['_id'],
-      name: user['name'],
-      image: user['image'],
-    };
-
-    this.me.friends = [friend, ...this.me.friends];
-    this.store.dispatch(new fromStore.LoginSuccess(this.me));
+    // const friend = {
+    //   _id: user['_id'],
+    //   name: user['name'],
+    //   image: user['image'],
+    // };
+    //
+    // this.me.friends = [friend, ...this.me.friends];
+    // this.store.dispatch(new fromStore.LoginSuccess(this.me));
   }
 }

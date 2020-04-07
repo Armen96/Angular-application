@@ -34,6 +34,8 @@ import { UserSearchComponent } from './modules/auth/profile/user-search/user-sea
 import {ImageCropperModule} from 'ngx-img-cropper';
 import {ImageCropperModalComponent} from './shared/components/image-cropper-modal/image-cropper-modal.component';
 import { UserFriendComponent } from './modules/auth/profile/user-friend/user-friend.component';
+import {IgxGridSharedModule} from './shared/ignite-ui-defaults/igx-grid-shared-module.module';
+import {UiToastService} from './shared/ui-toast/ui-toast.service';
 const config: SocketIoConfig = { url: 'http://localhost:4205', options: {} };
 
 export function createTranslateLoader(http: HttpClient) {
@@ -85,10 +87,12 @@ export function createTranslateLoader(http: HttpClient) {
     MatListModule,
     MatToolbarModule,
     MatButtonModule,
-    SocketIoModule.forRoot(config)
+    SocketIoModule.forRoot(config),
+    IgxGridSharedModule
   ],
   providers: [
     ...appServices,
+    UiToastService,
     AuthGuard,
     { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }
   ],

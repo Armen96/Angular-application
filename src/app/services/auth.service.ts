@@ -30,7 +30,6 @@ export class AuthService extends AppService {
   }
 
   getToken(): string {
-    console.log('TOKEN_HEADER_NAME', localStorage.getItem(environment.AUTH.TOKEN_HEADER_NAME) );
     return localStorage.getItem(environment.AUTH.TOKEN_HEADER_NAME) || null;
   }
 

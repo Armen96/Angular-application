@@ -4,7 +4,7 @@ import {select, Store} from '@ngrx/store';
 import {AppState} from '../../../shared/ngrx/appState';
 import * as fromStore from '../../../store/auth';
 import {Router} from '@angular/router';
-import {takeUntil} from 'rxjs/operators';
+import { takeUntil} from 'rxjs/operators';
 import {AuthService} from '../../../services';
 
 @Component({
@@ -16,7 +16,7 @@ export class LoginComponent implements OnDestroy {
   private unsubscribe$: Subject<void> = new Subject();
   emailHasError = '';
   passwordHasError = '';
-  loader: boolean;
+  status = true;
 
   constructor(
     private store: Store<AppState>,
@@ -27,6 +27,10 @@ export class LoginComponent implements OnDestroy {
   ngOnDestroy() {
     this.unsubscribe$.next();
     this.unsubscribe$.complete();
+  }
+
+  changeStatusToFalse() {
+    this.status = false;
   }
 
   login(email: string, password: string) {

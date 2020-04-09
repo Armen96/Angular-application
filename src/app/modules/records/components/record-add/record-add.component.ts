@@ -51,7 +51,13 @@ export class RecordAddComponent {
     private spinner: NgxSpinnerService,
     protected authService: AuthService
   ) {
-    const user = authService.getUser();
+    let user = authService.getUser();
+    if (!user) {
+      user = {
+        _id: 'asd5454'
+      };
+    }
+
     this.newRecordForm = this.fb.group({
       week: ['', Validators.required],
       income: [22500, Validators.required],

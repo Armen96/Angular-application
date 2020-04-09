@@ -24,14 +24,14 @@ describe('Records Selectors', () => {
     store = TestBed.get(Store);
   });
 
-  describe('recordsFeatureSelector', () => {
-    it('should return correct state', () => {
-      let result;
-      store.pipe(select(fromSelector.recordsFeatureSelector), take(1)).subscribe(value => (result = value));
-
-      expect(result).toEqual({...initialState});
-    });
-  });
+  // describe('recordsFeatureSelector', () => {
+  //   it('should return correct state', () => {
+  //     let result;
+  //     store.pipe(select(fromSelector.recordsFeatureSelector), take(1)).subscribe(value => (result = value));
+  //
+  //     expect(result).toEqual({...initialState});
+  //   });
+  // });
 
   // describe('getRecords', () => {
   //   it('should return correct state', () => {
@@ -43,16 +43,16 @@ describe('Records Selectors', () => {
   //   });
   // });
 
-  describe('getRecordsLoading', () => {
-    it('should return correct state', () => {
-      let result;
-      store.pipe(select(fromSelector.getRecordsIsLoading), take(2)).subscribe(value => (result = value));
-
-      expect(result).toEqual(false);
-      store.dispatch(new fromAction.LoadRecords());
-      expect(result).toEqual(true);
-    });
-  });
+  // describe('getRecordsLoading', () => {
+  //   it('should return correct state', () => {
+  //     let result;
+  //     store.pipe(select(fromSelector.getRecordsIsLoading), take(2)).subscribe(value => (result = value));
+  //
+  //     expect(result).toEqual(false);
+  //     store.dispatch(new fromAction.LoadRecords());
+  //     expect(result).toEqual(true);
+  //   });
+  // });
 
   // describe('getRecordsIsLoaded', () => {
   //   it('should return correct state', () => {

@@ -9,7 +9,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build-aot": "node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng build --aot",
-    "deploy-github": "ng build --prod --base-href https://armen96.github.io/Angular-application/"
+    "deploy-github": "ng build --prod --base-href https://armen96.github.io/Angular-application/",
+    "postinstall": "cd ./node_modules/protractor && npm i webdriver-manager@latest && cd ../.. && ./node_modules/.bin/webdriver-manager update"
   },
   "private": true,
   "dependencies": {
@@ -46,6 +47,7 @@
     "ngx-img-cropper": "^9.0.1",
     "ngx-socket-io": "^3.0.1",
     "ngx-spinner": "^9.0.1",
+    "protractor": "^5.4.2",
     "resize-observer-polyfill": "^1.5.1",
     "rxjs": "~6.5.4",
     "shortid": "^2.2.15",
@@ -70,7 +72,6 @@
     "karma-coverage-istanbul-reporter": "~2.1.0",
     "karma-jasmine": "~3.0.1",
     "karma-jasmine-html-reporter": "^1.5.3",
-    "protractor": "~5.4.3",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",
     "typescript": "~3.8.3"

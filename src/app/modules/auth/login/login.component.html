@@ -25,12 +25,12 @@
         <div class="container-login100-form-btn">
           <div class="wrap-login100-form-btn">
             <div class="login100-form-bgbtn"></div>
-            <button type="button" class="login100-form-btn"  (click)="login(email.value, password.value)">
+            <button id="crm-sign-in" type="button" class="login100-form-btn" (click)="login(email.value, password.value)">
               Sign In
             </button>
           </div>
 
-          <a [routerLink]="'/register'" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">
+          <a id="crm-go-sign-up" [routerLink]="'/register'" class="dis-block txt3 hov1 p-r-30 p-t-10 p-b-10 p-l-30">
             Sign Up
             <i class="fa fa-long-arrow-right m-l-5"></i>
           </a>

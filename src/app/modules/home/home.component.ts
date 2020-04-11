@@ -1,19 +1,17 @@
-import {ChangeDetectionStrategy, Component, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {CommonService} from '../../services';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],
-  changeDetection: ChangeDetectionStrategy.Default
 })
-export class HomeComponent implements OnChanges, OnInit {
-  constructor() { }
-
-  ngOnChanges(changes: SimpleChanges): void {
-    console.log("change", changes);
-  }
+export class HomeComponent implements OnInit {
+  technologies$: Observable<string[]>;
+  constructor(protected commonService: CommonService) { }
 
   ngOnInit(): void {
+    this.technologies$ = this.commonService.getTechnologies();
   }
-
 }

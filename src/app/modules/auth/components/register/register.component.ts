@@ -2,13 +2,13 @@ import {Component, OnDestroy} from '@angular/core';
 import {Subject} from 'rxjs';
 import {HttpErrorResponse} from '@angular/common/http';
 import {select, Store} from '@ngrx/store';
-import {AppState} from '../../../shared/ngrx/appState';
-import * as fromStore from '../../../store/auth';
+import {AppState} from '../../../../shared/ngrx/appState';
+import * as fromStore from '../../../../store/auth';
 import {Router} from '@angular/router';
 import {takeUntil} from 'rxjs/operators';
-import {ImageCropperModalFileType} from '../../../shared/components/image-cropper-modal/image-cropper-modal-file-type.type';
-import {AppFileUtils} from '../../../shared/utils/file-utils.class';
-import {AuthService} from '../../../services';
+import {ImageCropperModalFileType} from '../../../../shared/components/image-cropper-modal/image-cropper-modal-file-type.type';
+import {AppFileUtils} from '../../../../shared/utils/file-utils.class';
+import {AuthService} from '../../../../services';
 
 @Component({
   selector: 'app-register',

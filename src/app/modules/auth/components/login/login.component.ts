@@ -1,11 +1,11 @@
 import {Component, OnDestroy} from '@angular/core';
 import {Subject} from 'rxjs';
 import {select, Store} from '@ngrx/store';
-import {AppState} from '../../../shared/ngrx/appState';
-import * as fromStore from '../../../store/auth';
+import {AppState} from '../../../../shared/ngrx/appState';
+import * as fromStore from '../../../../store/auth';
 import {Router} from '@angular/router';
 import { takeUntil} from 'rxjs/operators';
-import {AuthService} from '../../../services';
+import {AuthService} from '../../../../services';
 
 @Component({
   selector: 'app-login',

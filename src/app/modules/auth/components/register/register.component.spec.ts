@@ -1,10 +1,10 @@
 import {RegisterComponent} from './register.component';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-import {AuthService} from '../../../services';
+import {AuthService} from '../../../../services';
 import {RouterTestingModule} from '@angular/router/testing';
 import {FormsModule} from '@angular/forms';
 import {StoreModule} from '@ngrx/store';
-import * as fromStore from '../../../store';
+import * as fromStore from '../../../../store';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('Register Component', () => {

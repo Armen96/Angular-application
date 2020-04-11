@@ -3,9 +3,7 @@ import { NgModule } from '@angular/core';
 import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { HomeComponent } from './modules/home/home.component';
 import { AuthGuard } from './shared/guards/auth.guard';
-
 import { AppRoutingModule } from './app-routing.module';
 import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -17,26 +15,16 @@ import {recordReducer, featureEffects, authReducer} from './store';
 import { SharedModule } from './shared/shared.module';
 import { appServices } from './services';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import {IgxBannerModule, IgxListModule} from 'igniteui-angular';
-import { LoginComponent } from './modules/auth/login/login.component';
-import { RegisterComponent } from './modules/auth/register/register.component';
+import {IgxBannerModule} from 'igniteui-angular';
 import {HttpInterceptorService} from './modules/auth/http-interceptor.service';
-import { ProfileComponent } from './modules/auth/profile/profile.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
-import { SocketIoModule, SocketIoConfig } from 'ngx-socket-io';
-import { UserConversationComponent } from './modules/auth/profile/user-conversation/user-conversation.component';
-import { UserSearchComponent } from './modules/auth/profile/user-search/user-search.component';
-import {ImageCropperModule} from 'ngx-img-cropper';
-import {ImageCropperModalComponent} from './shared/components/image-cropper-modal/image-cropper-modal.component';
-import { UserFriendComponent } from './modules/auth/profile/user-friend/user-friend.component';
 import {IgxGridSharedModule} from './shared/ignite-ui-defaults/igx-grid-shared-module.module';
 import {UiToastService} from './shared/ui-toast/ui-toast.service';
-const config: SocketIoConfig = { url: 'http://localhost:4205', options: {} };
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
@@ -44,18 +32,7 @@ export function createTranslateLoader(http: HttpClient) {
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HomeComponent,
-    LoginComponent,
-    RegisterComponent,
-    ProfileComponent,
-    UserConversationComponent,
-    UserSearchComponent,
-    ImageCropperModalComponent,
-    UserFriendComponent
-  ],
-  exports: [
-    ImageCropperModalComponent
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +42,6 @@ export function createTranslateLoader(http: HttpClient) {
     RouterModule,
     SharedModule,
     AppRoutingModule,
-    ImageCropperModule,
     StoreModule.forRoot({
       records: recordReducer,
       auth: authReducer
@@ -79,7 +55,6 @@ export function createTranslateLoader(http: HttpClient) {
       }
     }),
     BrowserAnimationsModule,
-    IgxListModule,
     IgxBannerModule,
     MatIconModule,
     MatMenuModule,
@@ -87,7 +62,6 @@ export function createTranslateLoader(http: HttpClient) {
     MatListModule,
     MatToolbarModule,
     MatButtonModule,
-    SocketIoModule.forRoot(config),
     IgxGridSharedModule
   ],
   providers: [

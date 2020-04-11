@@ -11,7 +11,7 @@ export class ImageCropperModalComponent implements OnInit {
   @Input() fileTypes: ImageCropperModalFileType[] = [];
   @Output() submit = new EventEmitter<{ originalFile: File; croppedImage: string }>();
   @Output() cancel = new EventEmitter<MouseEvent>();
-  @ViewChild('cropper', undefined) cropper: ImageCropperComponent;
+  @ViewChild('cropper', { static: true }) cropper: ImageCropperComponent;
 
   readonly IMAGES: ImageCropperModalFileType = 'images';
   readonly DOCUMENTS: ImageCropperModalFileType = 'documents';

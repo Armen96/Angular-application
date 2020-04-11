@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {CommonService} from '../../services';
+import {CommonService} from '../../../../services';
 import {Observable} from 'rxjs';
 
 @Component({

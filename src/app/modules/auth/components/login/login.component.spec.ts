@@ -1,10 +1,10 @@
 import {LoginComponent} from './login.component';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {combineReducers, StoreModule} from '@ngrx/store';
-import * as fromStore from '../../../store';
+import * as fromStore from '../../../../store';
 import {RouterTestingModule} from '@angular/router/testing';
 import {Component} from '@angular/core';
-import {AuthService} from '../../../services';
+import {AuthService} from '../../../../services';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {FormsModule} from '@angular/forms';
 

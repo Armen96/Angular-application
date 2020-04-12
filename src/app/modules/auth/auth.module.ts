@@ -10,6 +10,8 @@ import {ImageCropperModalComponent} from '../../shared/components/image-cropper-
 import {ImageCropperModule} from 'ngx-img-cropper';
 import {IgxListModule} from 'igniteui-angular';
 import {TranslateModule} from '@ngx-translate/core';
+import {StoreModule} from '@ngrx/store';
+import {authReducer} from '../../store/auth/reducers';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import {TranslateModule} from '@ngx-translate/core';
     SharedModule,
     ImageCropperModule,
     IgxListModule,
-    TranslateModule
+    TranslateModule,
+    StoreModule.forFeature('auth', authReducer)
   ]
 })
 export class AuthModule {

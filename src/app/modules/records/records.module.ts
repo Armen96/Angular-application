@@ -10,6 +10,8 @@ import { RecordAddComponent } from './components/record-add/record-add.component
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import {IgxTimePickerModule} from 'igniteui-angular';
+import {StoreModule} from '@ngrx/store';
+import {recordReducer} from '../../store/record/reducers';
 
 @NgModule({
   declarations: [
@@ -27,7 +29,8 @@ import {IgxTimePickerModule} from 'igniteui-angular';
     TranslateModule,
     NgxSpinnerModule,
     IgxTimePickerModule,
-    FormsModule
+    FormsModule,
+    StoreModule.forFeature('records', recordReducer)
   ]
 })
 export class RecordsModule { }

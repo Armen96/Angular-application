@@ -7,7 +7,7 @@ import {IgxGridComponent} from 'igniteui-angular';
 import {defaultIgxGridClipboardOptions} from '../../../shared/ignite-ui-defaults/igx-grid-clipboard-options-default';
 import {NgxSpinnerService} from 'ngx-spinner';
 import {skip, take} from 'rxjs/operators';
-import {RecordsInterface} from '../../../interfaces/record/records.interface';
+import {RecordsInterface} from '../../../interfaces/records.interface';
 import {NgLog} from '../../../shared/decorators/NgLog';
 
 @Component({

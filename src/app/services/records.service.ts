@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import {AppService} from '../../shared/services/app.service';
-import {environment} from '../../../environments/environment';
+import {AppService} from '../shared/services/app.service';
+import {environment} from '../../environments/environment';
 import {Observable} from 'rxjs';
-import {RecordsInterface} from '../../interfaces/record/records.interface';
+import {RecordsInterface} from '../interfaces/records.interface';
 
 @Injectable({
   providedIn: 'root'

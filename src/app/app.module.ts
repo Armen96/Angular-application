@@ -27,7 +27,7 @@ import {IgxGridSharedModule} from './shared/ignite-ui-defaults/igx-grid-shared-m
 import {UiToastService} from './shared/ui-toast/ui-toast.service';
 
 export function createTranslateLoader(http: HttpClient) {
-  return new TranslateHttpLoader(http, 'assets/i18n/', '.json');
+  return new TranslateHttpLoader(http, './i18n/', '.json');
 }
 
 @NgModule({

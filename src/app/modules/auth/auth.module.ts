@@ -9,6 +9,7 @@ import {SharedModule} from '../../shared/shared.module';
 import {ImageCropperModalComponent} from '../../shared/components/image-cropper-modal/image-cropper-modal.component';
 import {ImageCropperModule} from 'ngx-img-cropper';
 import {IgxListModule} from 'igniteui-angular';
+import {TranslateModule} from '@ngx-translate/core';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import {IgxListModule} from 'igniteui-angular';
     AuthRoutingModule,
     SharedModule,
     ImageCropperModule,
-    IgxListModule
+    IgxListModule,
+    TranslateModule
   ]
 })
 export class AuthModule {

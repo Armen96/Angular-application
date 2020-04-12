@@ -31,7 +31,6 @@ export class RecordAddComponent {
   public genres = [
     { type: "Action" , movies: ["The Matrix", "Kill Bill: Vol.1", "The Dark Knight Rises"]},
     { type: "Adventure" , movies: ["Interstellar", "Inglourious Basterds", "Inception"]},
-    // tslint:disable-next-line:object-literal-sort-keys
     { type: "Comedy" , movies: ["Wild Tales", "In Bruges", "Three Billboards Outside Ebbing, Missouri",
         "Untouchable", "3 idiots"]},
     { type: "Crime" , movies: ["Training Day", "Heat", "American Gangster"]},
@@ -94,8 +93,6 @@ export class RecordAddComponent {
     this.newRecordForm.reset();
     this.router.navigate(['/records']);
   }
-
-
 
   public onDateSelection(value) {
     this.user.dateTime.setDate((value as Date).getDate());

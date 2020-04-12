@@ -1,4 +1,4 @@
-import {RecordsInterface} from '../../../interfaces/record/records.interface';
+import {RecordsInterface} from '../../../interfaces/records.interface';
 import * as fromActions from '../actions/record.actions';
 import {HttpErrorResponse} from '@angular/common/http';
 

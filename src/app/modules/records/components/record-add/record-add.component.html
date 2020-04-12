@@ -10,32 +10,6 @@
 <igx-divider></igx-divider>
 <form [formGroup]="newRecordForm" class="input-group-form margin-bottom-20 margin-top-20"
       (ngSubmit)="doSave()" autocomplete="off">
-<!--  <fieldset>-->
-<!--    <section class="row margin-bottom-20">-->
-<!--      <igx-input-group class="col-xs-6">-->
-<!--        <input igxInput type="text" name="name" formControlName="body">-->
-<!--        <label igxLabel>Body</label>-->
-<!--      </igx-input-group>-->
-<!--      <igx-input-group class="col-xs-6">-->
-<!--        <input igxInput type="text" name="description" formControlName="title">-->
-<!--        <label igxLabel>Title</label>-->
-<!--      </igx-input-group>-->
-<!--    </section>-->
-
-<!--    <section class="row">-->
-<!--      <div class="col-xs-12">-->
-<!--        <button type="submit" class="btn btn-primary " [disabled]="(isLoading$ | async) || newRecordForm.invalid"-->
-<!--                igxButton="raised" igxButtonColor="white" igxButtonBackground="#000" igxRipple="yellow">-->
-<!--          Save-->
-<!--        </button>-->
-<!--        <button type="button" class="btn btn-primary margin-left-10" [disabled]="isLoading$ | async"-->
-<!--                (click)="doCancel()" igxButton="raised" igxButtonColor="white" igxButtonBackground="#000" igxRipple="yellow">-->
-<!--          Cancel-->
-<!--        </button>-->
-<!--      </div>-->
-<!--    </section>-->
-<!--  </fieldset>-->
-
   <div class="sample-wrapper">
     <section class="sample-content">
       <article class="sample-column">
@@ -101,9 +75,6 @@
       </article>
     </section>
   </div>
-
-
-
 </form>
 
 <ngx-spinner

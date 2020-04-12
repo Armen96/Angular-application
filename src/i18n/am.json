@@ -1,0 +1,14 @@
+{
+  "APP_FIREBASE_TRAVIS": "Continuous Deployment with Angular, Travis CI and Firebase Hosting",
+  "HEADERS": {
+    "RECORDS": "Records (am)",
+    "SIGN_IN": "Sign In (am)",
+    "SIGN_UP": "Sign Up (am)"
+  },
+  "MESSAGES": {
+
+  },
+  "LABELS": {
+    "ADD_RECORD": "Add Record"
+  }
+}

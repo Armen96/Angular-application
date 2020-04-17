@@ -6,6 +6,7 @@ import * as fromStore from '../../../../store/auth';
 import {Router} from '@angular/router';
 import { takeUntil} from 'rxjs/operators';
 import {AuthService} from '../../../../services';
+import {FormBuilder, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -17,11 +18,16 @@ export class LoginComponent implements OnDestroy {
   emailHasError = '';
   passwordHasError = '';
   status = true;
+  loginForm = this.fb.group({
+   email: ['', [Validators.required, Validators.email]],
+   password: ['', [Validators.required, Validators.minLength(2)]]
+  });
 
   constructor(
     private store: Store<AppState>,
     protected router: Router,
-    protected authService: AuthService
+    protected authService: AuthService,
+    protected fb: FormBuilder
   ) {}
 
   ngOnDestroy() {
@@ -33,7 +39,10 @@ export class LoginComponent implements OnDestroy {
     this.status = false;
   }
 
-  login(email: string, password: string) {
+  login() {
+    const email = this.loginForm.value.email;
+    const password = this.loginForm.value.password;
+
     const emailStatus = this.authService.emailVerification(email);
     const passwordStatus = this.authService.passwordVerification(password);
 

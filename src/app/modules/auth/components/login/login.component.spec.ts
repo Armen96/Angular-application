@@ -6,7 +6,7 @@ import {RouterTestingModule} from '@angular/router/testing';
 import {Component} from '@angular/core';
 import {AuthService} from '../../../../services';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {FakeTranslateModule} from '../../../../../test-utils/test-utils';
 
 @Component({
@@ -34,6 +34,7 @@ describe('LoginComponent', () => {
           }),
           RouterTestingModule.withRoutes(routes),
           HttpClientTestingModule,
+          ReactiveFormsModule,
           FormsModule,
           FakeTranslateModule
         ],

@@ -11,7 +11,7 @@ import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
-import {adminReducer, featureEffects} from './store';
+import {featureEffects} from './store';
 import { SharedModule } from './shared/shared.module';
 import { appServices } from './services';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";

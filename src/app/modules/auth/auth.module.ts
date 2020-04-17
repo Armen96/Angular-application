@@ -3,7 +3,7 @@ import {LoginComponent} from './components/login/login.component';
 import {RegisterComponent} from './components/register/register.component';
 import {CommonModule} from '@angular/common';
 import {AuthRoutingModule} from './auth-routing.module';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HomeComponent} from './components/home/home.component';
 import {SharedModule} from '../../shared/shared.module';
 import {ImageCropperModalComponent} from '../../shared/components/image-cropper-modal/image-cropper-modal.component';
@@ -26,6 +26,7 @@ import {authReducer} from '../../store/auth/reducers';
   imports: [
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
     AuthRoutingModule,
     SharedModule,
     ImageCropperModule,

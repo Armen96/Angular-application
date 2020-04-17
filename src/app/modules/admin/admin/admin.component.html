@@ -1,0 +1,24 @@
+<div class="super-container">
+  <div class="headers-height">
+    <app-header></app-header>
+  </div>
+
+  <div class="main-container">
+    <div class="main-panel">
+
+      <div class="container">
+        <div class="mb-20">
+          <h3 class="default-text-color">Admin</h3>
+        </div>
+
+        <div>
+          <igx-list>
+            <igx-list-item isHeader="true">Users</igx-list-item>
+            <igx-list-item *ngFor="let user of users$ | async">{{ user.name }} | {{ user.email }}</igx-list-item>
+          </igx-list>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

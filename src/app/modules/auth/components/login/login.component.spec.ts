@@ -7,6 +7,7 @@ import {Component} from '@angular/core';
 import {AuthService} from '../../../../services';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
 import {FormsModule} from '@angular/forms';
+import {FakeTranslateModule} from '../../../../../test-utils/test-utils';
 
 @Component({
   template: ''
@@ -33,7 +34,8 @@ describe('LoginComponent', () => {
           }),
           RouterTestingModule.withRoutes(routes),
           HttpClientTestingModule,
-          FormsModule
+          FormsModule,
+          FakeTranslateModule
         ],
         providers: [AuthService]
       });

@@ -4,6 +4,10 @@
   </a>
 
   <div class="settings-menu" *ngIf="isLogged">
+     <span class="margin-left-15 margin-right-15 default-text-color" [routerLink]="'/admin'" [ngStyle]="{'cursor': 'pointer'}">
+      Admin
+    </span>
+    |
     <span class="margin-left-15 margin-right-15 default-text-color" [routerLink]="'/profile'" [ngStyle]="{'cursor': 'pointer'}">
       {{ user?.name }}
     </span>

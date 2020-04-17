@@ -23,6 +23,7 @@ export const environment = {
     REGISTER: '/users/register',
     SEARCH: '/users/search',
     ROOM: '/users/room',
-    FRIEND: '/users/friend'
+    FRIEND: '/users/friend',
+    ADMIN: '/users/admin'
   }
 };

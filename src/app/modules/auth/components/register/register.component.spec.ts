@@ -6,6 +6,7 @@ import {FormsModule} from '@angular/forms';
 import {StoreModule} from '@ngrx/store';
 import * as fromStore from '../../../../store';
 import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {FakeTranslateModule} from '../../../../../test-utils/test-utils';
 
 describe('Register Component', () => {
   let component: RegisterComponent;
@@ -20,7 +21,8 @@ describe('Register Component', () => {
         }),
         RouterTestingModule,
         FormsModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        FakeTranslateModule
       ],
       providers: [
         AuthService

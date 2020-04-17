@@ -18,7 +18,7 @@ import {authReducer} from '../../store/auth/reducers';
     LoginComponent,
     RegisterComponent,
     HomeComponent,
-    ImageCropperModalComponent
+    ImageCropperModalComponent,
   ],
   exports: [
     ImageCropperModalComponent

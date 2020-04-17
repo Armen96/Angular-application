@@ -104,4 +104,9 @@ export class AuthService extends AppService {
     const url = this.getUrl(environment.USERS.FRIEND, '');
     return this.http.post(url, { friend: user });
   }
+
+  getUserList(): Observable<UsersInterface[]> {
+    const url = this.getUrl(environment.USERS.ADMIN, '');
+    return this.http.post<UsersInterface[]>(url, null);
+  }
 }

@@ -67,4 +67,27 @@ describe('AuthService', () => {
       expect(response2.status).toEqual(false);
     });
   });
+
+  describe('getUserList', () => {
+    it('should work', () => {
+      const dummyUserListResponse = [
+          {
+            _id: '54sad2a1sd2a21asd',
+            name: 'Armen Barsegyan',
+            email: 'barsegyan96armen@gmail.com',
+            password: '2$a45adsasda4sd54a5sd4x2x212221xzcxzczxczx',
+            image: 'image_link',
+            friends: []
+          }
+      ];
+
+      service.getUserList().subscribe(data => {
+        expect(data).toEqual(dummyUserListResponse);
+      });
+
+      const req = httpMock.expectOne(environment.LOCAL_REST_URL + environment.USERS.ADMIN);
+      expect(req.request.method).toEqual('POST');
+      req.flush(dummyUserListResponse);
+    });
+  });
 });

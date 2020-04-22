@@ -6,8 +6,6 @@ import {AuthRoutingModule} from './auth-routing.module';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HomeComponent} from './components/home/home.component';
 import {SharedModule} from '../../shared/shared.module';
-import {ImageCropperModalComponent} from '../../shared/components/image-cropper-modal/image-cropper-modal.component';
-import {ImageCropperModule} from 'ngx-img-cropper';
 import {IgxListModule} from 'igniteui-angular';
 import {TranslateModule} from '@ngx-translate/core';
 import {StoreModule} from '@ngrx/store';
@@ -17,11 +15,7 @@ import {authReducer} from '../../store/auth/reducers';
   declarations: [
     LoginComponent,
     RegisterComponent,
-    HomeComponent,
-    ImageCropperModalComponent,
-  ],
-  exports: [
-    ImageCropperModalComponent
+    HomeComponent
   ],
   imports: [
     CommonModule,
@@ -29,7 +23,6 @@ import {authReducer} from '../../store/auth/reducers';
     ReactiveFormsModule,
     AuthRoutingModule,
     SharedModule,
-    ImageCropperModule,
     IgxListModule,
     TranslateModule,
     StoreModule.forFeature('auth', authReducer)

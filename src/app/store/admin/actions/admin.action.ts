@@ -1,6 +1,5 @@
-import { Action } from '@ngrx/store';
-import {PayloadAction} from '../../../shared/ngrx/payload-action';
 import {UsersInterface} from '../../../interfaces/users.interface';
+import { PayloadAction, Action } from 'arxjs';
 
 export const ADMIN_USER_LIST = '[Admin] ADMIN_USER_LIST';
 export const ADMIN_USER_LIST_SUCCESS = '[Admin] ADMIN_USER_LIST_SUCCESS';

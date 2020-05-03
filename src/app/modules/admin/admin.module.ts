@@ -6,6 +6,8 @@ import {SharedModule} from '../../shared/shared.module';
 import {StoreModule} from '@ngrx/store';
 import {adminReducer} from '../../store/admin/reducers';
 import {IgxListModule} from 'igniteui-angular';
+import {AngularMaterialModule} from '../../shared/angular-material.module';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   imports: [
@@ -13,7 +15,9 @@ import {IgxListModule} from 'igniteui-angular';
     SharedModule,
     StoreModule.forFeature('admin', adminReducer),
     AdminRoutingModule,
-    IgxListModule
+    IgxListModule,
+    AngularMaterialModule,
+    RouterModule
   ],
   declarations: [AdminComponent]
 })

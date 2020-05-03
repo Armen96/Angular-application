@@ -34,7 +34,7 @@
     "@types/axios": "^0.14.0",
     "@types/hammerjs": "^2.0.36",
     "acorn": "^7.1.1",
-    "arxjs": "0.0.4",
+    "arxjs": "0.0.7",
     "firebase": "^7.1.0",
     "hammerjs": "^2.0.8",
     "igniteui-angular": "^9.0.7",

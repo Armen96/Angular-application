@@ -3,10 +3,10 @@ import * as fromStore from '../../../../store/auth';
 import {select, Store} from '@ngrx/store';
 import {takeUntil} from 'rxjs/operators';
 import {AppState} from '../../../../shared/ngrx/appState';
-import {UnsubscriptionHandler} from '../../../../shared/unsubscription-handler/unsubscription-handler';
 import {UsersInterface} from '../../../../interfaces/users.interface';
 import {RoomsInterface} from '../../../../interfaces/rooms.interface';
 import {AuthService, ChatService} from '../../../../services';
+import { UnsubscriptionHandler } from 'arxjs';
 
 @Component({
   selector: 'app-user-search',

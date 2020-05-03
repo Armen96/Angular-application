@@ -17,6 +17,12 @@
             <igx-list-item *ngFor="let user of users$ | async">{{ user.name }} | {{ user.email }}</igx-list-item>
           </igx-list>
         </div>
+
+        <div>
+          <button mat-fab color="primary" [routerLink]="'/home'">
+            <mat-icon>home</mat-icon>
+          </button>
+        </div>
       </div>
 
     </div>

@@ -1,5 +1,4 @@
-import { Action } from '@ngrx/store';
-import {PayloadAction} from '../../../shared/ngrx/payload-action';
+import { Action, PayloadAction } from 'arxjs';
 import {RecordsInterface} from '../../../interfaces/records.interface';
 
 export const LOAD_RECORDS = '[Records] LOAD_RECORDS';

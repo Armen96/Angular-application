@@ -1,5 +1,4 @@
-import { Action } from '@ngrx/store';
-import {PayloadAction} from '../../../shared/ngrx/payload-action';
+import { Action, PayloadAction } from 'arxjs';
 import {UsersInterface} from '../../../interfaces/users.interface';
 import {SearchPersonInterface} from '../../../interfaces/search.person.interface';
 

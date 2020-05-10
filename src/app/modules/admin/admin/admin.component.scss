@@ -1,0 +1,45 @@
+// Variables
+$deepBlue: #032f3e;
+$indigoBlue: #4545f6;
+$pink: #cf649a;
+$deepPink: rgb(191, 12, 103);
+
+// Mixines
+
+@mixin print {
+  width: 100%;
+
+  .title {
+    font-weight: bold;
+    font-size: 18px;
+    color: $deepBlue;
+  }
+
+  span {
+    font-size: 12px;
+    color: $indigoBlue;
+    &:hover {
+      color: black;
+    }
+  }
+}
+
+.sass-training {
+  .sass-pink-h3 {
+    color: $pink;
+
+    span {
+      color: $deepPink;
+    }
+  }
+
+  .footprint {
+    @include print;
+  }
+
+  .fingerprint {
+    @include print;
+  }
+
+}
+

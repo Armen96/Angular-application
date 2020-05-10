@@ -8,7 +8,7 @@ import {UsersInterface} from '../../../interfaces/users.interface';
 @Component({
   selector: 'app-admin',
   templateUrl: './admin.component.html',
-  styleUrls: ['./admin.component.css']
+  styleUrls: ['./admin.component.scss']
 })
 export class AdminComponent implements OnInit {
   users$: Observable<UsersInterface[]>;

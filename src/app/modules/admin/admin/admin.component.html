@@ -26,17 +26,9 @@
       </div>
 
       <div class="container sass-training">
-        <h3 class="sass-pink-h3">Hello SASS world<span>!!!</span></h3>
-
-        <div class="footprint">
-          <p class="title">Footprint</p>
-          <span>Read more...</span>
-        </div>
-
-        <div class="fingerprint">
-          <p class="title">Fingerprint</p>
-          <span>Read more...</span>
-        </div>
+        <h3 class="sass-pink-h3">
+          {{ processing | replaceUnderscore : true }}
+        </h3>
       </div>
 
     </div>

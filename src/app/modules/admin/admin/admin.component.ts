@@ -12,6 +12,7 @@ import {UsersInterface} from '../../../interfaces/users.interface';
 })
 export class AdminComponent implements OnInit {
   users$: Observable<UsersInterface[]>;
+  processing: string = 'Admin_Section_Under_The_Development';
 
   constructor(protected store: Store<AppState>) { }
 

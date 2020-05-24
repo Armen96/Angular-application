@@ -7,7 +7,10 @@ import {Injectable} from '@angular/core';
 
 @Injectable()
 export class AdminEffect {
-  constructor(private actions$: Actions, protected authService: AuthService) {}
+  constructor(
+    private actions$: Actions,
+    protected authService: AuthService
+  ) {}
 
   @Effect()
   adminUserList$ = this.actions$.pipe(

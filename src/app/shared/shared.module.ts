@@ -6,17 +6,20 @@ import {IgxGridModule} from 'igniteui-angular';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import {ImageCropperModalComponent} from './components/image-cropper-modal/image-cropper-modal.component';
 import { ImageCropperModule } from 'ngx-img-cropper';
+import { ReplaceUnderscorePipe } from './pipes/replace-underscore.pipe';
 
 @NgModule({
   declarations: [
     HeaderComponent,
-    ImageCropperModalComponent
+    ImageCropperModalComponent,
+    ReplaceUnderscorePipe
   ],
   exports: [
     CommonModule,
     HeaderComponent,
     IgxGridModule,
-    ImageCropperModalComponent
+    ImageCropperModalComponent,
+    ReplaceUnderscorePipe
   ],
   imports: [
     CommonModule,

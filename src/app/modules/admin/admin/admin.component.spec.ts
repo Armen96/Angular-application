@@ -28,7 +28,7 @@ describe('AdminComponent', () => {
       declarations: [ AdminComponent ],
       imports: [
         StoreModule.forRoot({
-          admin: combineReducers(fromStore.adminReducer)
+
         }),
         RouterTestingModule.withRoutes(routes),
         HttpClientTestingModule,

@@ -16,8 +16,8 @@ export class ProfileComponent extends UnsubscriptionHandler {
 
   constructor(protected authService: AuthService) {
     super();
-    const authUser = authService.getUser();
-    this.friends = authUser.friends;
+    // const authUser = authService.getUser();
+    // this.friends = authUser.friends;
   }
 
   openConversation(roomInfo) {

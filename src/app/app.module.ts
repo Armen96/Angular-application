@@ -65,7 +65,7 @@ export function createTranslateLoader(http: HttpClient) {
     ...appServices,
     UiToastService,
     AuthGuard,
-    { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }
+    // TODO later { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }
   ],
   entryComponents: [],
   bootstrap: [AppComponent]

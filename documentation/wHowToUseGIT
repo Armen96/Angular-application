@@ -1,0 +1,32 @@
+- clone application, then run npm install
+- run this command "npm run start", the application should run successfully
+
+before starting working on a task make sure you are on the "master" branch,
+open git terminal and run
+- "git checkout master"
+then pull updated files from the master branch
+- "git pull origin master"
+
+then checkout your working branch
+create a new branch using task id as a unique identifier,
+e.g. if your task title is "Research good logo for our Management app (1$) #9" and it is a new feature or bug the use bug or enhancement keyword.
+
+then your branch should look like this "enhancement/update-logo"
+or "bug/fixing-app-favicon"
+
+after finishing you task then add your changes to github
+- git add .
+- git commit -m "[your task id] Update application logo"
+- git push origin enhancement/update-logo
+
+Then go to GitHub web site and you will see create a pull request button, then create a pull request and assign it to your reviewer.
+After reviewing you will get feedback!
+
+If you don't know git or how to use github then go and learn it before starting your work
+There is a lot of material on Youtube for example https://www.youtube.com/watch?v=evgZPMWqpHc&list=PLriKzYyLb28nCh3jJLROcYBvj7ZO0l-3G&index=1&ab_channel=AlessandroCastellani
+Or learn from your favourite mentor
+
+Before starting you must know
+Git branching
+Git Pull/Push
+How to create PRs in GitHub

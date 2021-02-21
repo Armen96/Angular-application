@@ -1,0 +1,12 @@
+-- Application conditions
+
+--SALARY--
+PR = Pull Request
+For each task, you will get money, (price is written at the end of the task title e.g. 1$, 2$ and so on).
+You will get money if and only if your PR will be approved by the reviewer. (Reviewer will get money as well, 0.5$ for each completed PR)
+You will not get money if your code is not accepted by a reviewer.
+
+--QUESTIONS--
+Ask a question only yourself (which means google everything) do not bother anyone if you can not finish the task then add a comment and mention the person who you think can help you!
+For each answered question by reviewer, you will lose 10% of your total task reword, and your reviewer will get the money,
+(e.g your task price is 2$ and you asked a question and question answered by me and then you successfully finished your task then you will get 1.8$ and I will get the 0.2$ (your 10%))

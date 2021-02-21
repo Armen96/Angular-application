@@ -10,7 +10,7 @@
     "e2e": "ng e2e",
     "build-aot": "node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng build --aot",
     "deploy-github": "ng build --prod --base-href https://armen96.github.io/Angular-application/",
-    "postinstall": "cd ./node_modules/protractor && npm i webdriver-manager@latest && cd ../.. && ./node_modules/.bin/webdriver-manager update"
+    "postinstall": "ngcc"
   },
   "private": true,
   "dependencies": {

@@ -151,14 +151,14 @@ iframe {
 }
 
 .txt2 {
-  font-family: Poppins-Regular;
+  font-family: Poppins-Regular, serif;
   font-size: 15px;
   color: #666666;
   line-height: 1.4;
 }
 
 .txt3 {
-  font-family: Poppins-Regular;
+  font-family: Poppins-Regular, serif;
   font-size: 16px;
   color: #666666;
   line-height: 1.4;

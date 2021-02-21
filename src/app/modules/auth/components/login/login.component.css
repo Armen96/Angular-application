@@ -144,7 +144,7 @@ iframe {
 /*//////////////////////////////////////////////////////////////////
 [ Utility ]*/
 .txt1 {
-  font-family: Poppins-Regular;
+  font-family: Poppins-Regular, serif;
   font-size: 15px;
   color: #999999;
   line-height: 1.4;
@@ -504,7 +504,7 @@ iframe {
 
 .true-validate::after {
   content: "\f26b";
-  font-family: Material-Design-Iconic-Font;
+  font-family: Material-Design-Iconic-Font, serif;
   font-size: 22px;
   color: #00ad5f;
   display: -webkit-box;
@@ -993,7 +993,7 @@ iframe {
 .p-t-248 {padding-top: 248px;}
 .p-t-249 {padding-top: 249px;}
 .p-t-250 {padding-top: 250px;}
-.p-b-0 {padding-bottom: 0px;}
+.p-b-0 {padding-bottom: 0;}
 .p-b-1 {padding-bottom: 1px;}
 .p-b-2 {padding-bottom: 2px;}
 .p-b-3 {padding-bottom: 3px;}

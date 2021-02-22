@@ -1,6 +1,15 @@
 /* tslint:disable:max-line-length */
 import { NgModule } from '@angular/core';
-import { IgxAvatarModule, IgxBadgeModule, IgxButtonGroupModule, IgxButtonModule, IgxCheckboxModule, IgxChipsModule, IgxColumnHidingModule, IgxComboModule, IgxCsvExporterService, IgxDatePickerModule, IgxDialogModule, IgxDividerModule, IgxExcelExporterService, IgxExpansionPanelModule, IgxFocusModule, IgxGridModule, IgxIconModule, IgxInputGroupModule, IgxProgressBarModule, IgxRadioModule, IgxRippleModule, IgxSelectModule, IgxSliderModule, IgxSwitchModule, IgxToastModule, IgxToggleModule, IgxTooltipModule } from 'igniteui-angular';
+import {
+  IgxAvatarModule, IgxBadgeModule,
+  IgxButtonGroupModule, IgxButtonModule,
+  IgxCheckboxModule, IgxChipsModule,
+  IgxComboModule, IgxCsvExporterService, IgxDatePickerModule, IgxDialogModule,
+  IgxDividerModule, IgxExcelExporterService, IgxExpansionPanelModule, IgxFocusModule, IgxGridModule, IgxIconModule,
+  IgxInputGroupModule, IgxProgressBarModule, IgxRadioModule, IgxRippleModule,
+  IgxSelectModule, IgxSliderModule, IgxSwitchModule,
+  IgxToastModule, IgxToggleModule, IgxTooltipModule
+} from 'igniteui-angular';
 /* tslint:enable:max-line-length */
 
 @NgModule({
@@ -11,7 +20,6 @@ import { IgxAvatarModule, IgxBadgeModule, IgxButtonGroupModule, IgxButtonModule,
     IgxButtonModule,
     IgxCheckboxModule,
     IgxChipsModule,
-    IgxColumnHidingModule,
     IgxComboModule,
     IgxDatePickerModule,
     IgxDialogModule,
@@ -38,7 +46,6 @@ import { IgxAvatarModule, IgxBadgeModule, IgxButtonGroupModule, IgxButtonModule,
     IgxButtonModule,
     IgxCheckboxModule,
     IgxChipsModule,
-    IgxColumnHidingModule,
     IgxComboModule,
     IgxDatePickerModule,
     IgxDialogModule,

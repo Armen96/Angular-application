@@ -127,6 +127,7 @@
     "component-class-suffix": true,
     "directive-class-suffix": true,
     "invoke-injectable": true,
-    "no-unused-variable": true
+    "no-unused-variable": true,
+    "ts-nocheck": false
   }
 }

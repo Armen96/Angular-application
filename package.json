@@ -44,7 +44,7 @@
     "jquery-ui-dist": "^1.12.1",
     "jszip": "^3.1.5",
     "minireset.css": "~0.0.4",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "ng-bullet": "^1.0.3",
     "ngx-img-cropper": "^9.0.1",
     "ngx-socket-io": "^3.0.1",

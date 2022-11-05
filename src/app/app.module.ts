@@ -31,44 +31,43 @@ export function createTranslateLoader(http: HttpClient) {
 }
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    FormsModule,
-    ReactiveFormsModule,
-    HttpClientModule,
-    RouterModule,
-    SharedModule,
-    AppRoutingModule,
-    StoreModule.forRoot({}),
-    EffectsModule.forRoot([...featureEffects]),
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: createTranslateLoader,
-        deps: [HttpClient]
-      }
-    }),
-    BrowserAnimationsModule,
-    IgxBannerModule,
-    MatIconModule,
-    MatMenuModule,
-    MatSidenavModule,
-    MatListModule,
-    MatToolbarModule,
-    MatButtonModule,
-    IgxGridSharedModule
-  ],
-  providers: [
-    ...appServices,
-    UiToastService,
-    AuthGuard,
-    // TODO later { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }
-  ],
-  entryComponents: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        RouterModule,
+        SharedModule,
+        AppRoutingModule,
+        StoreModule.forRoot({}),
+        EffectsModule.forRoot([...featureEffects]),
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: createTranslateLoader,
+                deps: [HttpClient]
+            }
+        }),
+        BrowserAnimationsModule,
+        IgxBannerModule,
+        MatIconModule,
+        MatMenuModule,
+        MatSidenavModule,
+        MatListModule,
+        MatToolbarModule,
+        MatButtonModule,
+        IgxGridSharedModule
+    ],
+    providers: [
+        ...appServices,
+        UiToastService,
+        AuthGuard,
+        // TODO later { provide: HTTP_INTERCEPTORS, useClass: HttpInterceptorService, multi: true }
+    ],
+    bootstrap: [AppComponent]
 })
 export class AppModule {
 }

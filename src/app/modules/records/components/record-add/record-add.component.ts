@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
 import {Observable} from 'rxjs';
 import {select, Store} from '@ngrx/store';
 import {AppState} from '../../../../shared/ngrx/appState';
@@ -16,7 +16,7 @@ import {skip, take} from 'rxjs/operators';
   styleUrls: ['./record-add.component.css']
 })
 export class RecordAddComponent {
-  public newRecordForm = new FormGroup({});
+  public newRecordForm = new UntypedFormGroup({});
   public isLoading$: Observable<boolean>;
 
   public user = {
@@ -46,7 +46,7 @@ export class RecordAddComponent {
   constructor(
     protected store: Store<AppState>,
     protected router: Router,
-    protected fb: FormBuilder,
+    protected fb: UntypedFormBuilder,
     private spinner: NgxSpinnerService,
     protected authService: AuthService
   ) {

@@ -6,7 +6,7 @@ import * as fromStore from '../../../../store/auth';
 import {Router} from '@angular/router';
 import { takeUntil} from 'rxjs/operators';
 import {AuthService} from '../../../../services';
-import {FormBuilder, Validators} from '@angular/forms';
+import {UntypedFormBuilder, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -27,7 +27,7 @@ export class LoginComponent implements OnDestroy {
     private store: Store<AppState>,
     protected router: Router,
     protected authService: AuthService,
-    protected fb: FormBuilder
+    protected fb: UntypedFormBuilder
   ) {}
 
   ngOnDestroy() {

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Actions, Effect, ofType} from '@ngrx/effects';
+import {Actions, createEffect, ofType} from '@ngrx/effects';
 import * as fromAction from '../actions/auth.actions';
 import {catchError, map, switchMap} from 'rxjs/operators';
 import {of} from 'rxjs';
@@ -13,8 +13,8 @@ export class AuthEffects {
     protected authService: AuthService
   ) {}
 
-  @Effect()
-  login$ = this.actions$.pipe(
+  
+  login$ = createEffect(() => this.actions$.pipe(
     ofType(fromAction.LOGIN),
     map((action: fromAction.Register) => action.payload),
     switchMap((data) => {
@@ -23,10 +23,10 @@ export class AuthEffects {
         catchError(error => of(new fromAction.LogoutFail(error)))
       );
     })
-  );
+  ));
 
-  @Effect()
-  register$ = this.actions$.pipe(
+  
+  register$ = createEffect(() => this.actions$.pipe(
     ofType(fromAction.REGISTER),
     map((action: fromAction.Register) => action.payload),
     switchMap((data) => {
@@ -37,10 +37,10 @@ export class AuthEffects {
         catchError(error => of(new fromAction.RegisterFail(error)))
       );
     })
-  );
+  ));
 
-  @Effect()
-  logout$ = this.actions$.pipe(
+  
+  logout$ = createEffect(() => this.actions$.pipe(
     ofType(fromAction.LOGOUT),
     switchMap(() => {
       return this.authService.logout().pipe(
@@ -48,10 +48,10 @@ export class AuthEffects {
         catchError(error => of(new fromAction.LogoutFail(error)))
       );
     })
-  );
+  ));
 
-  @Effect()
-  search$ = this.actions$.pipe(
+  
+  search$ = createEffect(() => this.actions$.pipe(
     ofType(fromAction.SEARCH),
     map((action: fromAction.Search) => action.payload),
     switchMap((data) => {
@@ -60,5 +60,5 @@ export class AuthEffects {
         catchError(error => of(new fromAction.SearchFail(error)))
       );
     })
-  );
+  ));
 }

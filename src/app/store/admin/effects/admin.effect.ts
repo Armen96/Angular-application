@@ -1,4 +1,4 @@
-import {Actions, Effect, ofType} from '@ngrx/effects';
+import {Actions, createEffect, ofType} from '@ngrx/effects';
 import * as fromAction from '../actions/admin.action';
 import {AuthService} from '../../../services';
 import {catchError, map, switchMap} from 'rxjs/operators';
@@ -12,8 +12,8 @@ export class AdminEffect {
     protected authService: AuthService
   ) {}
 
-  @Effect()
-  adminUserList$ = this.actions$.pipe(
+  
+  adminUserList$ = createEffect(() => this.actions$.pipe(
     ofType(fromAction.ADMIN_USER_LIST),
     switchMap(() => {
       return this.authService.getUserList().pipe(
@@ -21,5 +21,5 @@ export class AdminEffect {
         catchError(error => of(new fromAction.AdminUserListFail(error)))
       );
     })
-  );
+  ));
 }

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {Observable} from 'rxjs';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
 import {select, Store} from '@ngrx/store';
 import {AppState} from '../../../../shared/ngrx/appState';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -15,14 +15,14 @@ import {NgxSpinnerService} from 'ngx-spinner';
   styleUrls: ['./record-view.component.css']
 })
 export class RecordViewComponent extends UnsubscriptionHandler {
-  public recordForm = new FormGroup({});
+  public recordForm = new UntypedFormGroup({});
   public isLoading$: Observable<boolean>;
 
   constructor(
     protected store: Store<AppState>,
     protected router: Router,
     protected route: ActivatedRoute,
-    protected fb: FormBuilder,
+    protected fb: UntypedFormBuilder,
     private spinner: NgxSpinnerService
   ) {
     super();

@@ -132,9 +132,10 @@
       }
     }
   },
-  "defaultProject": "angular-app",
   "cli": {
-    "defaultCollection": "@ngrx/schematics",
-    "analytics": "1e747271-ded2-44f7-a580-5d9d75f12cd7"
+    "analytics": "1e747271-ded2-44f7-a580-5d9d75f12cd7",
+    "schematicCollections": [
+      "@ngrx/schematics"
+    ]
   }
 }

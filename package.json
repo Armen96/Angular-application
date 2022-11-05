@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "build-aot": "node --max_old_space_size=4096 ./node_modules/@angular/cli/bin/ng build --aot",
-    "deploy-github": "ng build --prod --base-href https://armen96.github.io/Angular-application/",
+    "deploy-github": "ng build --configuration production --base-href https://armen96.github.io/Angular-application/",
     "postinstall": "ngcc"
   },
   "private": true,
@@ -55,11 +55,11 @@
     "shortid": "^2.2.15",
     "tslib": "^1.10.0",
     "web-animations-js": "^2.3.2",
-    "zone.js": "~0.11.8"
+    "zone.js": "~0.11.4"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.1102.19",
-    "@angular/cli": "~11.2.19",
+    "@angular-devkit/build-angular": "~12.2.18",
+    "@angular/cli": "~12.2.18",
     "@angular/compiler-cli": "~14.2.9",
     "@angular/language-service": "~14.2.9",
     "@types/jasmine": "~3.5.0",
